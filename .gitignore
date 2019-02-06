@@ -1,0 +1,14 @@
+source/log
+source/tmp
+!/oxideshop
+!README.md
+!/styles
+!/styles/
+!/gulpfile.js
+!/package.json
+.idea/
+._git-oxid/
+.DS_Store
+source/out/media/
+source/Application7views/wave/node_modules/
+
