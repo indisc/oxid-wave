@@ -1,0 +1,72 @@
+#!/usr/bin/env php
+<?php
+/**
+ * This file is part of OXID eSales Coding Standards.
+ *
+ * OXID eSales Coding Standards is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * OXID eSales Coding Standards is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OXID eSales Coding Standards. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @link http://www.oxid-esales.com
+ * @copyright (C) OXID eSales AG 2003-2015
+ */
+
+$scriptPath = array_shift($argv);
+$binDir = dirname(realpath($scriptPath));
+
+// if installed by shop composer install
+if (preg_match("@vendor/bin$@si", $binDir, $matches)) {
+    $phpCs = "$binDir/phpcs";
+    $source = $binDir . "/../../";
+    $standard = $binDir . "/../oxid-esales/coding-standards/Oxid";
+
+} elseif (preg_match("@.vendor.oxid-esales.coding-standards.bin$@si", $binDir, $matches)) {
+    $phpCs = $binDir . "/../../../../vendor/bin/phpcs";
+    $source = $binDir . "/../../../../";
+    $standard = $binDir . "/../Oxid";
+
+// if installed by coding standards repository checkout
+} else {
+    // overwrite for binDir variable with real path!
+    $binDir = dirname(realpath($scriptPath));
+    $phpCs = "$binDir/../vendor/bin/phpcs";
+    $standard = $binDir . "/../Oxid";
+}
+
+// checking if phpcs can be found
+if (!file_exists($phpCs)) {
+    die("Cannot find phpcs file, please check installation manual, if software was installed correctly!");
+}
+
+// collect arguments
+$arguments = array();
+$sourceFromParams = false;
+foreach ($argv as $argument) {
+    if (strpos($argument, '-') === 0) {
+        $arguments[] = $argument;
+    } else {
+        $arguments[] = escapeshellarg($argument);
+        $sourceFromParams = true;
+    }
+}
+$arguments = implode(' ', $arguments);
+
+// prepare command
+$command = "$phpCs --standard=$standard $arguments ";
+if (!$sourceFromParams) {
+    if (isset($source)) {
+        $command .= $source;
+    }
+}
+
+passthru($command, $ret);
+exit($ret);

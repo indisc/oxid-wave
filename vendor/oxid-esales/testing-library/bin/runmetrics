@@ -1,0 +1,41 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Copyright © OXID eSales AG. All rights reserved.
+ * See LICENSE file for license details.
+ */
+
+require_once __DIR__ .'/../base.php';
+
+$testConfig = new OxidEsales\TestingLibrary\TestConfig();
+$fileCopier = new OxidEsales\TestingLibrary\FileCopier();
+
+$arguments = array();
+array_shift($argv);
+$ignore = '--ignore=vendor,tests,out';
+foreach ($argv as $argument) {
+    if (strpos($argument, '--ignore') !== false) {
+        $ignore = $argument;
+        continue;
+    }
+    $arguments[] = (strpos($argument, '-') === 0) ? $argument : escapeshellarg($argument);
+}
+$arguments = implode(' ', $arguments);
+
+$php = getenv('PHPBIN') ? getenv('PHPBIN') : 'php';
+$pDepend = $testConfig->getVendorDirectory() ."/bin/pdepend";
+if (!file_exists($pDepend)) {
+    $pDepend = "pdepend";
+}
+$pDepend = "$php $pDepend";
+
+$mcMetrics = "$php ". TEST_LIBRARY_PATH ."MC_Metrics.php";
+
+$testSuites = $testConfig->getTestSuites();
+foreach ($testSuites as $suite) {
+    $reportsDir = $suite .'/reports';
+    $fileCopier->createEmptyDirectory($reportsDir);
+
+    passthru("$pDepend --summary-xml=$reportsDir/pdepend.xml $ignore $arguments $suite/../");
+    passthru("$mcMetrics $reportsDir/pdepend.xml > $reportsDir/metrics.txt");
+}

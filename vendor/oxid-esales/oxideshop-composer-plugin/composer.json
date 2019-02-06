@@ -1,0 +1,32 @@
+{
+  "name": "oxid-esales/oxideshop-composer-plugin",
+  "description": "This file is mean to be used to install OXID eShop compilation.",
+  "type": "composer-plugin",
+  "keywords": ["oxidEshop", "plugin"],
+  "homepage": "https://www.oxid-esales.com/en/home.html",
+  "license": [
+    "GPL-3.0-only"
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "composer-plugin-api": "^1.0",
+    "symfony/filesystem": "^3.0",
+    "webmozart/glob": "^4.1",
+    "webmozart/path-util": "^2.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8",
+    "mikey179/vfsStream": "^1.6",
+    "composer/composer": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {"OxidEsales\\ComposerPlugin\\": "src"}
+  },
+  "autoload-dev": {
+    "psr-4": { "OxidEsales\\ComposerPlugin\\Tests\\": "tests/" }
+  },
+  "extra": {
+    "class": "OxidEsales\\ComposerPlugin\\Plugin"
+  }
+}

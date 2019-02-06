@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Copyright © OXID eSales AG. All rights reserved.
+ * See LICENSE file for license details.
+ */
+
+require_once __DIR__ .'/../base.php';
+
+// NOTE: reset-shop can reset a local shop as well as a remote one depending on
+// test_config.yml settings. Presence of the correct UNC classes needs to be ensured
+// in local as well as remote installation before any shop classes can be used.
+\OxidEsales\TestingLibrary\TestConfig::prepareUnifiedNamespaceClasses();
+
+$testConfig = new OxidEsales\TestingLibrary\TestConfig();
+
+$serviceCaller = new OxidEsales\TestingLibrary\ServiceCaller($testConfig);
+$serviceCaller->setParameter('serial', $testConfig->getShopSerial());
+$serviceCaller->setParameter('addDemoData', 1);
+$serviceCaller->setParameter('turnOnVarnish', $testConfig->shouldEnableVarnish());
+$serviceCaller->setParameter('setupPath', $testConfig->getShopSetupPath());
+$serviceCaller->callService('ShopInstaller');
