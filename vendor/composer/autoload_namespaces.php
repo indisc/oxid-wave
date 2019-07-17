@@ -10,7 +10,7 @@ return array(
     'Selenium' => array($vendorDir . '/oxid-esales/php-selenium/src'),
     'Requests' => array($vendorDir . '/rmccue/requests/library'),
     'ProxyManager\\' => array($vendorDir . '/ocramius/proxy-manager/src'),
-    'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
+    'Pimple' => array($vendorDir . '/pimple/pimple/src'),
     'Guzzle\\Stream' => array($vendorDir . '/guzzle/stream'),
     'Guzzle\\Parser' => array($vendorDir . '/guzzle/parser'),
     'Guzzle\\Http' => array($vendorDir . '/guzzle/http'),

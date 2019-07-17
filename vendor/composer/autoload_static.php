@@ -9,6 +9,7 @@ class ComposerStaticIniteb49c20791b49d4508581721bcf855e9
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        'fe1bcd0336136e435eaf197895daf81a' => __DIR__ . '/..' . '/nikic/php-parser/lib/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -54,6 +55,8 @@ class ComposerStaticIniteb49c20791b49d4508581721bcf855e9
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
+            'ProudSourcing\\ExceptionHandler\\' => 31,
+            'Prophecy\\' => 9,
             'PackageVersions\\' => 16,
             'PDepend\\' => 8,
         ),
@@ -94,6 +97,7 @@ class ComposerStaticIniteb49c20791b49d4508581721bcf855e9
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
+            'Distill\\' => 8,
         ),
         'C' => 
         array (
@@ -212,6 +216,14 @@ class ComposerStaticIniteb49c20791b49d4508581721bcf855e9
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'ProudSourcing\\ExceptionHandler\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/source/modules/ps/psexceptionhandler',
+        ),
+        'Prophecy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
+        ),
         'PackageVersions\\' => 
         array (
             0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
@@ -312,6 +324,10 @@ class ComposerStaticIniteb49c20791b49d4508581721bcf855e9
         array (
             0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
         ),
+        'Distill\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/raulfraile/distill/src',
+        ),
         'Composer\\XdebugHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/xdebug-handler/src',
@@ -336,6 +352,12 @@ class ComposerStaticIniteb49c20791b49d4508581721bcf855e9
         array (
             0 => __DIR__ . '/..' . '/amzn/amazon-pay-sdk-php/AmazonPay',
         ),
+    );
+
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/..' . '/smxsm/oxrun/src',
+        1 => __DIR__ . '/../..' . '/source/oxruncmds',
+        2 => __DIR__ . '/..' . '/smxsm/oxrun/tests',
     );
 
     public static $prefixesPsr0 = array (
@@ -366,9 +388,9 @@ class ComposerStaticIniteb49c20791b49d4508581721bcf855e9
             array (
                 0 => __DIR__ . '/..' . '/ocramius/proxy-manager/src',
             ),
-            'Prophecy\\' => 
+            'Pimple' => 
             array (
-                0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
+                0 => __DIR__ . '/..' . '/pimple/pimple/src',
             ),
         ),
         'G' => 
@@ -1155,6 +1177,7 @@ class ComposerStaticIniteb49c20791b49d4508581721bcf855e9
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticIniteb49c20791b49d4508581721bcf855e9::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticIniteb49c20791b49d4508581721bcf855e9::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticIniteb49c20791b49d4508581721bcf855e9::$fallbackDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticIniteb49c20791b49d4508581721bcf855e9::$prefixesPsr0;
             $loader->classMap = ComposerStaticIniteb49c20791b49d4508581721bcf855e9::$classMap;
 
