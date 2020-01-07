@@ -16,7 +16,8 @@ namespace Fastlane\VetBonus;
 class UserUpdatableFields extends UserUpdatableFields_parent
 {
     protected $fieldsToAdd = [
-        UserModel::FIELD_ADDITIONAL_INFORMATION
+        UserModel::FIELD_ADDITIONAL_INFORMATION,
+        UserMOdel::FIELD_CHECKBOX_REGISTRY
     ];
 
     /**

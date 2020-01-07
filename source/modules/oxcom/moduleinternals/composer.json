@@ -1,0 +1,42 @@
+{
+  "name": "oxid-community/moduleinternals",
+  "description": "Display module internals",
+  "type": "oxideshop-module",
+  "minimum-stability": "stable",
+  "keywords": [
+    "oxid",
+    "modules",
+    "admin",
+    "debug",
+    "oxid-module-internals"
+  ],
+  "homepage": "https://github.com/OXIDprojects/oxid-module-internals",
+  "license": [
+    "GPL-3.0"
+  ],
+  "require":{
+    "symfony/console" : "^2.7||^3.1||^4.0",
+    "composer/composer" : "^1.6"
+  },
+  "require-dev":{
+    "oxid-esales/oxideshop-ce" : "^6.1",
+    "oxid-esales/testing-library": "^5",
+    "phpunit/phpcov": "~2.0.2"
+  },
+  "extra": {
+    "oxideshop": {
+      "target-directory": "oxcom/moduleinternals",
+      "comment-console-commands": "warning the following line is deprecated and will be removed",
+      "console-commands" : ["OxidCommunity\\ModuleInternals\\Command\\ModuleFixCommand"],
+      "blacklist-filter": [
+                "C*/**/*",
+                ".*"
+            ]
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "OxidCommunity\\ModuleInternals\\": ""
+    }
+  }
+}

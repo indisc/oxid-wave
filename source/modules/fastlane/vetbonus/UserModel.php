@@ -16,4 +16,5 @@ namespace Fastlane\VetBonus;
 class UserModel
 {
     const FIELD_ADDITIONAL_INFORMATION = 'EXTENDUSER_ADDITIONALCONTACTINFO';
+    const FIELD_CHECKBOX_REGISTRY = 'HF24_VETREFNR';
 }

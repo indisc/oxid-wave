@@ -1,5 +1,6 @@
 [{$smarty.block.parent}]
 
+[{*
 <div class="form-group">
     <label class="control-label col-lg-3">Additional contact info</label>
     <div class="col-lg-9">
@@ -10,3 +11,4 @@
         >
     </div>
 </div>
+*}]

@@ -61,6 +61,7 @@ return array(
     'OxidEsales\\DemoDataInstaller\\' => array($vendorDir . '/oxid-esales/oxideshop-demodata-installer/src'),
     'OxidEsales\\DatabaseViewsGenerator\\' => array($vendorDir . '/oxid-esales/oxideshop-db-views-generator/src'),
     'OxidEsales\\ComposerPlugin\\' => array($vendorDir . '/oxid-esales/oxideshop-composer-plugin/src'),
+    'OxidCommunity\\ModuleInternals\\' => array($vendorDir . '/oxid-community/moduleinternals'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'JsonSchema\\' => array($vendorDir . '/justinrainbow/json-schema/src/JsonSchema'),
     'Incenteev\\ParameterHandler\\' => array($vendorDir . '/incenteev/composer-parameter-handler'),

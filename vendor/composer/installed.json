@@ -1985,6 +1985,65 @@
         ]
     },
     {
+        "name": "oxid-community/moduleinternals",
+        "version": "2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/OXIDprojects/oxid-module-internals.git",
+            "reference": "0434f2f49787abc14e3addf10ac0d0ceb6e41692"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/OXIDprojects/oxid-module-internals/zipball/0434f2f49787abc14e3addf10ac0d0ceb6e41692",
+            "reference": "0434f2f49787abc14e3addf10ac0d0ceb6e41692",
+            "shasum": ""
+        },
+        "require": {
+            "composer/composer": "^1.6",
+            "symfony/console": "^2.7||^3.1||^4.0"
+        },
+        "require-dev": {
+            "oxid-esales/oxideshop-ce": "^6.1",
+            "oxid-esales/testing-library": "^5",
+            "phpunit/phpcov": "~2.0.2"
+        },
+        "time": "2019-06-25T11:27:45+00:00",
+        "type": "oxideshop-module",
+        "extra": {
+            "oxideshop": {
+                "target-directory": "oxcom/moduleinternals",
+                "comment-console-commands": "warning the following line is deprecated and will be removed",
+                "console-commands": [
+                    "OxidCommunity\\ModuleInternals\\Command\\ModuleFixCommand"
+                ],
+                "blacklist-filter": [
+                    "C*/**/*",
+                    ".*"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "OxidCommunity\\ModuleInternals\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0"
+        ],
+        "description": "Display module internals",
+        "homepage": "https://github.com/OXIDprojects/oxid-module-internals",
+        "keywords": [
+            "OXID",
+            "admin",
+            "debug",
+            "modules",
+            "oxid-module-internals"
+        ]
+    },
+    {
         "name": "oxid-esales/azure-theme",
         "version": "v1.4.2",
         "version_normalized": "1.4.2.0",

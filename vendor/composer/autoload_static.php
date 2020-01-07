@@ -94,6 +94,7 @@ class ComposerStaticIniteb49c20791b49d4508581721bcf855e9
             'OxidEsales\\DemoDataInstaller\\' => 29,
             'OxidEsales\\DatabaseViewsGenerator\\' => 34,
             'OxidEsales\\ComposerPlugin\\' => 26,
+            'OxidCommunity\\ModuleInternals\\' => 30,
         ),
         'M' => 
         array (
@@ -359,6 +360,10 @@ class ComposerStaticIniteb49c20791b49d4508581721bcf855e9
         'OxidEsales\\ComposerPlugin\\' => 
         array (
             0 => __DIR__ . '/..' . '/oxid-esales/oxideshop-composer-plugin/src',
+        ),
+        'OxidCommunity\\ModuleInternals\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/oxid-community/moduleinternals',
         ),
         'Monolog\\' => 
         array (

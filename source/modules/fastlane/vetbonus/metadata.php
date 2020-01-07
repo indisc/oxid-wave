@@ -31,11 +31,20 @@ $aModule = array(
         \OxidEsales\Eshop\Application\Model\User\UserUpdatableFields::class => \Fastlane\VetBonus\UserUpdatableFields::class
     ),
     'events'       => array(
-        'onActivate'   => '\Fastlane\Vetbonus\Core\Events\VetBonusEvents::onActivate',
-        'onDeactivate' => '\Fastlane\Vetbonus\Core\Events\VetBonusEvents::onDeactivate'
+        'onActivate'   => \Fastlane\VetBonus\ModuleEvents::class.'::onActivate',
+        'onDeactivate' => \Fastlane\VetBonus\ModuleEvents::class.'::onDeactivate'
     ),
     'blocks' => array(
-        array('template' => 'form/fieldset/user_billing.tpl', 'block'=>'form_user_billing_country', 'file'=>'/views/user.tpl'),
+        array(
+            'template' => 'form/fieldset/user_billing.tpl',
+            'block'=>'form_user_billing_country',
+            'file'=>'Application/views/user.tpl'
+        ),
+        array(
+            'template' => 'form/register.tpl',
+            'block' => 'user_checkbox_registration',
+            'file' => 'Application/views/register.tpl'
+        )
     ),
     'settings' => []
 );

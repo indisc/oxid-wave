@@ -14,7 +14,8 @@
     "topconcepts/oxid-cleverreach-6": "v4.1.0",
     "protipps/technical_details": "*",
     "cihaeuser/formbuilder": "^1.10",
-    "oxid-esales/extend-user-demo-module": "dev-master"
+    "oxid-esales/extend-user-demo-module": "dev-master",
+    "oxid-community/moduleinternals": "^2.0"
   },
   "require-dev": {
     "oxid-esales/testing-library": "^v5.0.4",

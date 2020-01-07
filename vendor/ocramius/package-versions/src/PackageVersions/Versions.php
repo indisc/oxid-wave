@@ -33,6 +33,7 @@ final class Versions
   'monolog/monolog' => '1.25.1@70e65a5470a42cfec1a7da00d30edb6e617e8dcf',
   'ocramius/package-versions' => '1.2.0@ad8a245decad4897cc6b432743913dad0d69753c',
   'ocramius/proxy-manager' => '2.0.4@a55d08229f4f614bf335759ed0cf63378feeb2e6',
+  'oxid-community/moduleinternals' => '2.0.0@0434f2f49787abc14e3addf10ac0d0ceb6e41692',
   'oxid-esales/extend-user-demo-module' => 'dev-master@207020a29d29030a5a054176302030c634975e97',
   'oxid-esales/flow-theme' => 'v3.3.0@9d0ebd40cb67ad2f617acccc7c5e24e96c885a16',
   'oxid-esales/gdpr-optin-module' => 'v2.2.0@bf66736a112c1f0de189bac14f397e6eb3110213',
@@ -127,7 +128,7 @@ final class Versions
   'symfony/dom-crawler' => 'v2.7.51@d905e1c5885735ee66af60c205429b9941f24752',
   'symfony/event-dispatcher' => 'v3.2.14@b8de6ee252af19330dd72ad5fc0dd4658a1d6325',
   'theseer/fdomdocument' => '1.6.6@6e8203e40a32a9c770bcb62fe37e68b948da6dca',
-  'oxid-esales/oxideshop-project' => 'dev-master@f9d6d6d490d7aa56add9e0b931893060d1ebf606',
+  'oxid-esales/oxideshop-project' => 'dev-master@7cb3fb67a9fc0c19b854e57755baa465b4b5a450',
 );
 
     private function __construct()
