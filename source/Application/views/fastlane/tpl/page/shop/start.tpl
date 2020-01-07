@@ -27,8 +27,8 @@
     [{block name="start_newest_articles"}]
         [{assign var="oNewestArticles" value=$oView->getNewestArticles()}]
         [{if $oNewestArticles && $oNewestArticles->count()}]
-            [{include file="widget/product/slide-list.tpl"
-type=$oViewConf->getViewThemeParam('sStartPageListDisplayType') head="START_NEWEST_HEADER"|oxmultilangassign subhead="START_NEWEST_SUBHEADER"|oxmultilangassign listId="newItems" products=$oNewestArticles rsslink=$rsslinks.newestArticles rssId="rssNewestProducts" showMainLink=true iProductsPerLine=4}]
+            [{include file="widget/product/list-neu.tpl" type=$oViewConf->getViewThemeParam('sStartPageListDisplayType')
+head="START_NEWEST_HEADER"|oxmultilangassign subhead="START_NEWEST_SUBHEADER"|oxmultilangassign listId="newItems" products=$oNewestArticles rsslink=$rsslinks.newestArticles rssId="rssNewestProducts" showMainLink=true iProductsPerLine=4}]
         [{/if}]
     [{/block}]
 
@@ -44,6 +44,7 @@ type=$oViewConf->getViewThemeParam('sStartPageListDisplayType') head="START_NEWE
             [{include file="widget/product/list.tpl" type="infogrid" head="START_TOP_PRODUCTS_HEADER"|oxmultilangassign subhead="START_TOP_PRODUCTS_SUBHEADER"|oxmultilangassign:$oTopArticles->count() listId="topBox" products=$oTopArticles rsslink=$rsslinks.topArticles rssId="rssTopProducts" showMainLink=true iProductsPerLine=2}]
         [{/if}]
     [{/block}]
+    [{ formbuilder oxid="1283195e8e6ef2df8205b982478aa33f" }]
 
     [{insert name="oxid_tracker"}]
 [{/capture}]

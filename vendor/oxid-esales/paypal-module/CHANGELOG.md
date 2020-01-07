@@ -4,17 +4,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [5.2.4] - Unreleased
-
-### Added
-
-### Changed
-
-### Deprecated
-
-### Removed
+## [5.2.5] - 2019-04-13
 
 ### Fixed
+- [0006972](https://bugs.oxid-esales.com/view.php?id=6972) Unfinished order with PayPal Express Checkout in some special constellations.
+
+## [5.2.4] - 2019-04-10
+
+### Fixed
+- Fix readonly flag for deliveryset_main.tpl.
+- Button in paypal have correct text ("Continue" but not "Pay now" anymore)
+- [0006921](https://bugs.oxid-esales.com/view.php?id=6921) Fix downloadlink in user mail.
+- Wrap paypal payment block in div with "well well-sm" class to fit other payments [PR-47](https://github.com/OXID-eSales/paypal/pull/47)
+- Fixed template variable in IPNHandler controller [PR-49](https://github.com/OXID-eSales/paypal/pull/49)
+- [0006955](https://bugs.oxid-esales.com/view.php?id=6955) Fix wrong payment method creation on module deactivation. [PR-50](https://github.com/OXID-eSales/paypal/pull/50)
+- [0006132](https://bugs.oxid-esales.com/view.php?id=6132) Backwards compatibility break: Fix wrong response of IPNHandler handleRequest [PR-48](https://github.com/OXID-eSales/paypal/pull/48)
+- [0006963](https://bugs.oxid-esales.com/view.php?id=6963) With PayPal Express Checkout the telephone number which is deposited with PayPal in the account is not handed over with to shop
 
 ## [5.2.3] - 2018-10-09
 
@@ -102,7 +107,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Additional PayPal express checkout button in user checkout step in case no user is logged in.
 
 
-[v5.2.3]: https://github.com/OXID-eSales/paypal/compare/v5.2.3...HEAD
+[v5.2.5]: https://github.com/OXID-eSales/paypal/compare/v5.2.4...v5.2.5
+[v5.2.4]: https://github.com/OXID-eSales/paypal/compare/v5.2.3...v5.2.4
+[v5.2.3]: https://github.com/OXID-eSales/paypal/compare/v5.2.2...v5.2.3
 [v5.2.2]: https://github.com/OXID-eSales/paypal/compare/v5.2.1...v5.2.2
 [v5.2.1]: https://github.com/OXID-eSales/paypal/compare/v5.2.0...v5.2.1
 [v5.2.0]: https://github.com/OXID-eSales/paypal/compare/v5.1.6...v5.2.0

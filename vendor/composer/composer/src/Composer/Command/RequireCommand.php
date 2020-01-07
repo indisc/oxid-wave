@@ -25,6 +25,8 @@ use Composer\Plugin\CommandEvent;
 use Composer\Plugin\PluginEvents;
 use Composer\Repository\CompositeRepository;
 use Composer\Repository\PlatformRepository;
+use Composer\IO\IOInterface;
+use Composer\Util\Silencer;
 
 /**
  * @author Jérémy Romey <jeremy@free-agent.fr>
@@ -73,6 +75,7 @@ If you do not specify a version constraint, composer will choose a suitable one 
 
 If you do not want to install the new dependencies immediately you can call it with --no-update
 
+Read more at https://getcomposer.org/doc/03-cli.md#require
 EOT
             )
         ;
@@ -101,11 +104,6 @@ EOT
 
             return 1;
         }
-        if (!is_writable($this->file)) {
-            $io->writeError('<error>'.$this->file.' is not writable.</error>');
-
-            return 1;
-        }
 
         if (filesize($this->file) === 0) {
             file_put_contents($this->file, "{\n}\n");
@@ -113,6 +111,14 @@ EOT
 
         $this->json = new JsonFile($this->file);
         $this->composerBackup = file_get_contents($this->json->getPath());
+
+        // check for writability by writing to the file as is_writable can not be trusted on network-mounts
+        // see https://github.com/composer/composer/issues/8231 and https://bugs.php.net/bug.php?id=68926
+        if (!is_writable($this->file) && !Silencer::call('file_put_contents', $this->file, $this->composerBackup)) {
+            $io->writeError('<error>'.$this->file.' is not writable.</error>');
+
+            return 1;
+        }
 
         $composer = $this->getComposer(true, $input->getOption('no-plugins'));
         $repos = $composer->getRepositoryManager()->getRepositories();
@@ -139,7 +145,12 @@ EOT
 
         // validate requirements format
         $versionParser = new VersionParser();
-        foreach ($requirements as $constraint) {
+        foreach ($requirements as $package => $constraint) {
+            if (strtolower($package) === $composer->getPackage()->getName()) {
+                $io->writeError(sprintf('<error>Root package \'%s\' cannot require itself in its composer.json</error>', $package));
+
+                return 1;
+            }
             $versionParser->parseConstraints($constraint);
         }
 
@@ -159,15 +170,26 @@ EOT
         if ($input->getOption('no-update')) {
             return 0;
         }
-        $updateDevMode = !$input->getOption('update-no-dev');
-        $optimize = $input->getOption('optimize-autoloader') || $composer->getConfig()->get('optimize-autoloader');
-        $authoritative = $input->getOption('classmap-authoritative') || $composer->getConfig()->get('classmap-authoritative');
-        $apcu = $input->getOption('apcu-autoloader') || $composer->getConfig()->get('apcu-autoloader');
 
+        try {
+            return $this->doUpdate($input, $output, $io, $requirements);
+        } catch (\Exception $e) {
+            $this->revertComposerFile(false);
+            throw $e;
+        }
+    }
+
+    private function doUpdate(InputInterface $input, OutputInterface $output, IOInterface $io, array $requirements)
+    {
         // Update packages
         $this->resetComposer();
         $composer = $this->getComposer(true, $input->getOption('no-plugins'));
         $composer->getDownloadManager()->setOutputProgress(!$input->getOption('no-progress'));
+
+        $updateDevMode = !$input->getOption('update-no-dev');
+        $optimize = $input->getOption('optimize-autoloader') || $composer->getConfig()->get('optimize-autoloader');
+        $authoritative = $input->getOption('classmap-authoritative') || $composer->getConfig()->get('classmap-authoritative');
+        $apcu = $input->getOption('apcu-autoloader') || $composer->getConfig()->get('apcu-autoloader');
 
         $commandEvent = new CommandEvent(PluginEvents::COMMAND, 'require', $input, $output);
         $composer->getEventDispatcher()->dispatch($commandEvent->getName(), $commandEvent);
@@ -195,7 +217,7 @@ EOT
 
         $status = $install->run();
         if ($status !== 0) {
-            $this->revertComposerFile();
+            $this->revertComposerFile(false);
         }
 
         return $status;
@@ -226,7 +248,7 @@ EOT
         return;
     }
 
-    public function revertComposerFile()
+    public function revertComposerFile($hardExit = true)
     {
         $io = $this->getIO();
 
@@ -238,6 +260,8 @@ EOT
             file_put_contents($this->json->getPath(), $this->composerBackup);
         }
 
-        exit(1);
+        if ($hardExit) {
+            exit(1);
+        }
     }
 }

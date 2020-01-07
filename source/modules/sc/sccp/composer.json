@@ -1,0 +1,23 @@
+{
+  "name": "sinkacom/creditplus-module",
+  "type": "oxideshop-module",
+  "extra": {
+    "oxideshop": {
+      "target-directory": "sc/sccp"
+    }
+  },
+  "require": {
+    "php": ">=5.6",
+    "lib-openssl": ">=1.0.1",
+    "ext-openssl": "*",
+    "ext-json": "*",
+    "ext-soap": "*",
+    "ext-zlib": "*",
+    "ext-openssl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sinkacom\\CreditPlusModule\\": "../../../source/modules/sc/sccp"
+    }
+  }
+}

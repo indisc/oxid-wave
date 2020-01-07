@@ -1,0 +1,20 @@
+{
+  "name": "fastlane/VetBonus",
+  "description": "This module purpose is to show how to extend OXID eShop updatable fields functionality.",
+  "type": "oxideshop-module",
+  "keywords": ["oxid", "modules", "eShop"],
+  "homepage": "https://www.fastlane.de",
+  "license": [
+    "GPL-3.0-only"
+  ],
+  "autoload": {
+    "psr-4": {
+      "Fastlane\\VetBonus\\": "../../../source/modules/fastlane/vetbonus"
+    }
+  },
+  "extra": {
+    "oxideshop": {
+      "target-directory": "fastlane/vetbonus"
+    }
+  }
+}

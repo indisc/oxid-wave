@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Introduction on FormBuilder</title>
+    <link>https://sioweb.github.io/OxidFormBuilder/</link>
+    <description>Recent content in Introduction on FormBuilder</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-de</language>
+    <lastBuildDate>Fri, 08 Mar 2019 12:13:45 +0100</lastBuildDate>
+    
+	<atom:link href="https://sioweb.github.io/OxidFormBuilder/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Formulare</title>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/backend/forms/</link>
+      <pubDate>Fri, 08 Mar 2019 12:13:45 +0100</pubDate>
+      
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/backend/forms/</guid>
+      <description>Formulare definieren Damit ein Formular erzeugt werden kann, benötigt es eine Klasse, die im Modul unter /form angelegt wird. Die Ordnerstruktur wird hier durch die Namespaces definiert, es wird empfohlen Formulare für den Adminbereich unter /form/admin abzulegen. Formulare für das Frontend sollten unter /form/frontend abgespeichert werden. Die Namespaces lauten dann z.B. Firmenkürzel\Oxid\Formularname\Form\Admin\Formularname. Dabei entspricht der Part Firmenkürzel\Oxid\Formularname dem Prefix, welches in der composer.json angegeben wird und Form\Admin\Formularname gibt den Pfad zur Datei Formularname.</description>
+    </item>
+    
+    <item>
+      <title>Autoupdate Databse</title>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/backend/autoupdate_databse/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/backend/autoupdate_databse/</guid>
+      <description>Datenbank automatisch aktualisieren Nutzt ein Modul den FormBuilder, kann der Generator die konfigurierte Tabelle inkl. Tabellenfelder erzeugen. Diese Technologie ist noch in der Beta-Phase.
+Wie? Ähnlich, wie in Oxid 6 Controller definiert werden, kann ein Modul nun auch Formulare hinterlegen. Dazu muss in der Datei metadata.php folgender Eintrag hinterlegt sein:
+&#39;formbuilder&#39; =&amp;gt; [ &#39;uniquer_form_key&#39; =&amp;gt; \Name\Space\Zur\Form\Klasse\Formularname::class, ]  Der FormBuilder lädt die Klasse und durchsucht sie nach mindestkriterien. Sind Felder und Tabellenname hinterlegt, werden diese angelegt, sobald das Modul aktiviert wird.</description>
+    </item>
+    
+    <item>
+      <title>Elements</title>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/frontend/elements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/frontend/elements/</guid>
+      <description>Eingabefelder Eingabefelder werden wie eine Art Template mit Standardwerten angelegt. Ein Eingabefeld kann in verschiedenen Formularen wiederverwendet und dessen Standardwerte können dort dann überschrieben werden.
+Bevor Sie ein Formular erstellen können, müssen Sie mindestens ein Eingabefeld gespeichert haben. Sie finden die Formular Eingabefelder im Admin-Bereich von Oxid in der Navigation unter Shopeinstellungen.
+Legen Sie nun ein neues Feld an. Sobald Sie das Feld Typ ändert, wird das Formular neu geladen und es werden nur noch Felder angezeigt, welche für den ausgewählten Typen relevant sind.</description>
+    </item>
+    
+    <item>
+      <title>Fieldsets</title>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/frontend/fieldsets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/frontend/fieldsets/</guid>
+      <description>Fieldset Fieldsets sind Container, die eine Gruppe von Eingabefeldern definieren. Sobald Sie einige Felder einem Formular hinzugefügt haben, können Sie diese nach einem Neuladen auf der rechten Seite einer Gruppe zuweisen.
+Sortieren Klicken und halten Sie mit der linken Maustaste den kleinen Balken unterhalb einer Gruppe und ziehen Sie die Gruppe an die gewünschte Position.
+Warnung: Einige Elemente wurden nicht gefunden Diese Meldung erscheint, falls Eingabefelder gelöscht wurden, welche diesem Formular noch zugeordnet waren.</description>
+    </item>
+    
+    <item>
+      <title>Forms</title>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/frontend/forms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/frontend/forms/</guid>
+      <description>Formulare konfigurieren Formulare bestehen aus zwei Bereichen. Links wird das Formular selbst definiert und wie es reagieren soll, wenn es vollständig und erfolgreich abgeschickt wird.
+Auf der rechten Seite, kann ein Stück weit das Aussehen des Formulares definiert werden. Sobald Sie einige Eingabefelder hinzugefügt haben, können Sie hier die Eingabefelder via Drag&amp;amp;Drop sortieren und verschiedenen Gruppen zuordnen.
+Formular als E-Mail senden Wollen Sie das Formular per E-Mail senden, haken Sie die Option Formular senden an.</description>
+    </item>
+    
+    <item>
+      <title>SSH</title>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/install/ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/install/ssh/</guid>
+      <description>Mit SSH auf einen Server verbinden Auf dieser Seite erfahren Sie rudementär, wie sie per SSH auf einen Server zugreifen können. Es werden keine Umfangreichen Kenntnisse vorausgesetzt, allerdings sollten Sie sich mit den gängigen Konsolenbefehlen vertraut machen: ls -la, cd, mv, cp, rm. Bitte beachten Sie, dass wir keinen Support für Verbindungen zu Hostern leisten, bitte fragen Sie bei Bedarf Ihren Hoster, oder ziehen Sie das Forum zu rate.</description>
+    </item>
+    
+    <item>
+      <title>Sql</title>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/install/sql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/install/sql/</guid>
+      <description>Demo-Daten Diese Demo-Daten können verwendet werden, um Frontend-Formulare zu testen. Hinweis: Bitte ersetzen Sie die E-Mail-Adresse example@example.tld vorher durch ihre eigene E-Mail-Adresse. Die E-Mail-Adresse, kann hinterher auch im Backend geändert werden.
+CREATE TABLE IF NOT EXISTS `ci_form` ( `OXID` char(32) NOT NULL COMMENT &#39;Attachment id&#39;, `OXSHOPID` int(11) NOT NULL DEFAULT 1 COMMENT &#39;Shop id (oxshops)&#39;, `OXTITLE` varchar(255) NOT NULL DEFAULT &#39;&#39;, `OXCSSCLASS` varchar(255) NOT NULL DEFAULT &#39;&#39; COMMENT &#39;Frontend CSS Class&#39;, `OXACTIVE` tinyint(1) NOT NULL DEFAULT 1 COMMENT &#39;Active&#39;, `OXACTIVEFROM` datetime NOT NULL DEFAULT &#39;0000-00-00 00:00:00&#39; COMMENT &#39;Active from specified date&#39;, `OXACTIVETO` datetime NOT NULL DEFAULT &#39;0000-00-00 00:00:00&#39; COMMENT &#39;Active to specified date&#39;, `OXSORT` int(5) NOT NULL DEFAULT 0 COMMENT &#39;Sorting&#39;, `OXTIMESTAMP` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT &#39;Timestamp&#39;, `OXACTION` varchar(255) NOT NULL DEFAULT &#39;&#39;, `OXFIELDCONFIG` text DEFAULT NULL, `OXSENDFORM` varchar(255) NOT NULL DEFAULT &#39;&#39;, `OXRECEIVER` varchar(255) NOT NULL DEFAULT &#39;&#39;, `OXSUBJECT` varchar(255) NOT NULL DEFAULT &#39;&#39;, `OXCONTENT` text DEFAULT NULL, `OXALIAS` varchar(255) NOT NULL DEFAULT &#39;&#39;, `OXHTMLTEMPLATE` varchar(255) NOT NULL DEFAULT &#39;&#39;, `OXCONFIRM` varchar(255) NOT NULL DEFAULT &#39;&#39;, `OXRECEIVER_CONFIRM` varchar(255) NOT NULL DEFAULT &#39;&#39;, `OXSUBJECT_CONFIRM` varchar(255) NOT NULL DEFAULT &#39;&#39;, `OXCONTENT_CONFIRM` varchar(255) NOT NULL DEFAULT &#39;&#39;, `APPLYFIELDS` varchar(255) NOT NULL DEFAULT &#39;&#39;, `SUBMIT` varchar(255) NOT NULL DEFAULT &#39;&#39;, PRIMARY KEY (`OXID`), KEY `OXSORT` (`OXSORT`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; INSERT INTO `ci_form` (`OXID`, `OXSHOPID`, `OXTITLE`, `OXCSSCLASS`, `OXACTIVE`, `OXACTIVEFROM`, `OXACTIVETO`, `OXSORT`, `OXTIMESTAMP`, `OXACTION`, `OXFIELDCONFIG`, `OXSENDFORM`, `OXRECEIVER`, `OXSUBJECT`, `OXCONTENT`, `OXALIAS`, `OXHTMLTEMPLATE`, `OXCONFIRM`, `OXRECEIVER_CONFIRM`, `OXSUBJECT_CONFIRM`, `OXCONTENT_CONFIRM`, `APPLYFIELDS`, `SUBMIT`) VALUES (&#39;1283195e8e6ef2df8205b982478aa33f&#39;, 1, &#39;Artikel anfrage&#39;, &#39;&#39;, 1, &#39;0000-00-00 00:00:00&#39;, &#39;0000-00-00 00:00:00&#39;, 0, &#39;2019-03-11 11:40:41&#39;, &#39;Formular-erfolgreich-abgesendet/&#39;, &#39;[{\&amp;quot;legend\&amp;quot;:\&amp;quot;\&amp;quot;,\&amp;quot;fields\&amp;quot;:[\&amp;quot;f0fe484a825e33de0106875a6e7f05a3\&amp;quot;,\&amp;quot;d28c63a3cd7853bef5d1c57ef2587c29\&amp;quot;,\&amp;quot;815c89d152bc07829844acc7d8d9bc9f\&amp;quot;,\&amp;quot;cabc7909e5ba9a58b322d19ca5ab5626\&amp;quot;]}]&#39;, &#39;1&#39;, &#39;example@example.</description>
+    </item>
+    
+    <item>
+      <title>Templates</title>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/frontend/templates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/frontend/templates/</guid>
+      <description>Frontend-Templates Neben den Plaintext-E-Mails werden auch HTML-E-Mails gesendet. Damit dies Funktionert, müssen im aktiven Template zunächst die Templates angelegt werden.
+In der Formularkonfiguration, können Sie unter der Einstellung HTML-Template (Ohne .tpl) den Namen eines Templates hinterlegen. Dieser Wert wird automatisch gesetzt, falls Sie diesen nicht angeben.
+Sollten Sie Beispielsweise Ihr Formular Artikel Anfrage nennen, wird automatisch der Template-Name artikel-anfrage erzeugt.
+Damit das Template gefunden wird, muss es unter source/Application/views/AKTIVES_THEME/tpl/email/formbuilder/artikel-anfrage.tpl. Für die Bestätigungs-E-Mail, muss noch ein Unterordner customer angelegt werden: source/Application/views/AKTIVES_THEME/tpl/email/formbuilder/customer/artikel-anfrage.</description>
+    </item>
+    
+  </channel>
+</rss>

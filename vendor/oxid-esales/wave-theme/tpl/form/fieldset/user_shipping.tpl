@@ -30,18 +30,24 @@
                         <div class="col-12 col-md-6 col-lg-4">
                             <div class="card">
                                 <div class="card-body">
+                                    [{block name="form_user_shipping_address_actions"}]
                                     [{if $address->isSelected()}]
+                                        [{block name="form_user_shipping_address_edit_action"}]
                                         <button class="btn btn-warning btn-sm hasTooltip float-right dd-action dd-edit-shipping-address edit-button"
                                                 title="[{oxmultilang ident="CHANGE"}]">
                                             <i class="fas fa-pencil-alt"></i>
                                         </button>
+                                        [{/block}]
+                                        [{block name="form_user_shipping_address_delete_action"}]
                                         <button class="btn btn-danger btn-sm hasTooltip float-right dd-action dd-delete-shipping-address edit-button"
                                                 title="[{oxmultilang ident="DD_DELETE"}]"
                                                 data-toggle="modal"
                                                 data-target="#delete_shipping_address_[{$smarty.foreach.shippingAdresses.iteration}]">
                                             <i class="fa fa-trash"></i>
                                         </button>
+                                        [{/block}]
                                     [{/if}]
+                                    [{/block}]
                                     [{include file="widget/address/shipping_address.tpl" delivadr=$address}]
                                 </div>
                                 <div class="card-footer" >
@@ -85,7 +91,7 @@
         </div>
     </div>
     <div class="form-group[{if $aErrors.oxaddress__oxfname}] oxInValid[{/if}]">
-        <label class="control-label col-lg-3[{if $oView->isFieldRequired(oxaddress__oxfname)}] req"[{/if}]">[{oxmultilang ident="FIRST_NAME"}]</label>
+        <label class="control-label col-lg-3[{if $oView->isFieldRequired(oxaddress__oxfname)}] req[{/if}]">[{oxmultilang ident="FIRST_NAME"}]</label>
         <div class="col-lg-9">
             <input class="form-control[{if $oView->isFieldRequired(oxaddress__oxfname)}] js-oxValidate js-oxValidate_notEmpty[{/if}]" type="text" maxlength="255" name="deladr[oxaddress__oxfname]" value="[{if isset( $deladr.oxaddress__oxfname )}][{$deladr.oxaddress__oxfname}][{else}][{$delivadr->oxaddress__oxfname->value}][{/if}]"[{if $oView->isFieldRequired(oxaddress__oxfname)}] required=""[{/if}]>
             [{if $oView->isFieldRequired(oxaddress__oxfname)}]

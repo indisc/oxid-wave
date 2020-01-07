@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OX>
+    <OXMENU id="NAVIGATION_ESHOPADMIN">
+        <!-- #11894 <MAINMENU id="mxmanageprod">-->
+            <!--<SUBMENU id="mxsccpexcludedarticles" cl="sccp_cpexcluded_articles" list="sccp_cpexcluded_articles_list">-->
+                <!--<TAB id="tbsccpcpexcludedarticlesdetail" cl="sccp_cpexcluded_articles_detail" />-->
+            <!--</SUBMENU>-->
+        <!--</MAINMENU>-->
+        <MAINMENU id="mxorders">
+            <SUBMENU id="mxsccpcporder" cl="sinkacom_creditplusmodule_ordermain" list="sinkacom_creditplusmodule_orderlist">
+                <TAB id="tbclsccp_order_details" cl="sinkacom_creditplusmodule_orderdetails"/>
+                <TAB id="tbclsccp_order_article" cl="sinkacom_creditplusmodule_orderarticle"/>
+            </SUBMENU>
+        </MAINMENU>
+        <MAINMENU id="mxshopsett">
+            <SUBMENU id="mxsccpcpproductgroup" cl="sinkacom_creditplusmodule_productgroup">
+                <TAB id="tbclsccp_cpproduct_group" cl="sinkacom_creditplusmodule_productgroup"/>
+                <!-- #11894 raus - #12127 rein -->
+				<BTN id="sccp_prodgroup_new" />
+            </SUBMENU>
+            <SUBMENU id="mxsccpcpofferedoptions" cl="sinkacom_creditplusmodule_offeredoption">
+                <TAB id="tbclsccp_cpoffered_option" cl="sinkacom_creditplusmodule_offeredoption"/>
+                <BTN id="sccp_offered_option_new" />
+            </SUBMENU>
+        </MAINMENU>
+    </OXMENU>
+</OX>

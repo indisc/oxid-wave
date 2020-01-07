@@ -8,25 +8,24 @@ require_once 'Signature.php';
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
     private $configParams = array(
-                'merchant_id' => 'test',
-                'access_key' => 'test',
-                'secret_key' => "test",
-                'currency_code' => 'usd',
-                'client_id' => 'test',
-                'region' => 'us',
-                'sandbox' => true,
-                'platform_id' => 'test',
-                'application_name' => 'sdk testing',
-                'application_version' => '1.0',
-                'proxy_host' => null,
-                'proxy_port' => -1,
-                'proxy_username' => null,
-                'proxy_Password' => null
+                'merchant_id'          => 'MERCHANT1234567',
+                'access_key'           => 'ABCDEFGHI1JKLMN2O7',
+                'secret_key'           => "abc123Def456gHi789jKLmpQ987rstu6vWxyz",
+                'currency_code'        => 'usd',
+                'client_id'            => 'amzn1.application-oa2-client.45789c45a8f34927830be1d9e029f480',
+                'region'               => 'us',
+                'sandbox'              => true,
+                'platform_id'          => 'test',
+                'application_name'     => 'sdk testing',
+                'application_version'  => '1.0',
+                'proxy_host'           => null,
+                'proxy_port'           => -1,
+                'proxy_username'       => null,
+                'proxy_Password'       => null
             );
 
     public function testConfigArray()
     {
-
         // Test that trimmimg isn't converting the Boolean to a string
         $client = new Client($this->configParams);
         $this->assertTrue((bool)$client->__get('sandbox'));
@@ -158,11 +157,11 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' => 'SellerId',
+            'merchant_id'               => 'SellerId',
             'amazon_order_reference_id' => 'AmazonOrderReferenceId',
-            'address_consent_token' => 'AddressConsentToken',
-            'access_token' => 'AccessToken',
-            'mws_auth_token' => 'MWSAuthToken'
+            'address_consent_token'     => 'AddressConsentToken',
+            'access_token'              => 'AccessToken',
+            'mws_auth_token'            => 'MWSAuthToken'
         );
 
         $action = 'GetOrderReferenceDetails';
@@ -179,6 +178,72 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($apiParametersString, $expectedStringParams);
     }
 
+    public function testListOrderReference()
+    {
+        $client = new Client($this->configParams);
+        $fieldMappings = array(
+            'merchant_id'        => 'SellerId',
+            'mws_auth_token'     => 'MWSAuthToken',
+            
+            'query_id'           => 'QueryId',
+            'query_id_type'      => 'QueryIdType',
+            'page_size'          => 'PageSize',
+            'created_start_time' => 'CreatedTimeRange.StartTime',
+            'created_end_time'   => 'CreatedTimeRange.EndTime',
+            'sort_order'         => 'SortOrder',
+            'order_status_list'  => array()
+
+        );
+
+        $action = 'ListOrderReference';
+        $parameters = $this->setParametersAndPost($fieldMappings, $action);
+
+        $expectedParameters = $parameters['expectedParameters'];
+        $expectedParameters['OrderReferenceStatusListFilter.OrderReferenceStatus.1'] = 'Open';
+        $expectedParameters['OrderReferenceStatusListFilter.OrderReferenceStatus.2'] = 'Closed';
+        $apiCallParams = $parameters['apiCallParams'];
+
+        $expectedStringParams = $this->callPrivateMethod($client, 'calculateSignatureAndParametersToString', $expectedParameters);
+
+        $response = $client->listOrderReference($apiCallParams);
+
+        $apiParametersString = $client->getParameters();
+
+        // Hack to remove mismatched Signature (due to param mismatch), then remove Signature from both to eliminate mismatch
+        $apiParametersString = preg_replace("/&PaymentDomain=[^&]*/", "", $apiParametersString);
+        $apiParametersString = preg_replace("/&Signature=[^&]*/", "", $apiParametersString);
+        $expectedStringParams = preg_replace("/&Signature=[^&]*/", "", $expectedStringParams);
+
+        $this->assertEquals($apiParametersString, $expectedStringParams);
+    }
+
+    public function testListOrderReferenceByNextToken()
+    {
+        $client = new Client($this->configParams);
+        $fieldMappings = array(
+            'merchant_id'     => 'SellerId',
+            'mws_auth_token'  => 'MWSAuthToken',
+            
+            'next_page_token' => 'NextPageToken'
+        );
+
+        $action = 'ListOrderReferenceByNextToken';
+
+        $parameters = $this->setParametersAndPost($fieldMappings, $action);
+
+
+        $expectedParameters = $parameters['expectedParameters'];
+        $apiCallParams = $parameters['apiCallParams'];
+
+        $expectedStringParams = $this->callPrivateMethod($client, 'calculateSignatureAndParametersToString', $expectedParameters);
+
+        $response = $client->listOrderReferenceByNextToken($apiCallParams);
+
+        $apiParametersString = $client->getParameters();
+
+        $this->assertEquals($apiParametersString, $expectedStringParams);
+    }
+
     public function testSetOrderReferenceDetails()
     {
         $client = new Client($this->configParams);
@@ -192,6 +257,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             'seller_order_id'               => 'OrderReferenceAttributes.SellerOrderAttributes.SellerOrderId',
             'store_name'                    => 'OrderReferenceAttributes.SellerOrderAttributes.StoreName',
             'custom_information'            => 'OrderReferenceAttributes.SellerOrderAttributes.CustomInformation',
+            'supplementary_data'            => 'OrderReferenceAttributes.SellerOrderAttributes.SupplementaryData',
             'request_payment_authorization' => 'OrderReferenceAttributes.RequestPaymentAuthorization',
             'mws_auth_token'                => 'MWSAuthToken'
         );
@@ -224,8 +290,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             'seller_order_id'                   => 'OrderAttributes.SellerOrderAttributes.SellerOrderId',
             'store_name'                        => 'OrderAttributes.SellerOrderAttributes.StoreName',
             'custom_information'                => 'OrderAttributes.SellerOrderAttributes.CustomInformation',
+            'supplementary_data'                => 'OrderAttributes.SellerOrderAttributes.SupplementaryData',
             'request_payment_authorization'     => 'OrderAttributes.RequestPaymentAuthorization',
-            'payment_service_provider_id'	=> 'OrderAttributes.PaymentServiceProviderAttributes.PaymentServiceProviderId',
+            'payment_service_provider_id'       => 'OrderAttributes.PaymentServiceProviderAttributes.PaymentServiceProviderId',
             'payment_service_provider_order_id' => 'OrderAttributes.PaymentServiceProviderAttributes.PaymentServiceProviderOrderId',
             'order_item_categories'             => array(),
             'mws_auth_token'                    => 'MWSAuthToken'
@@ -262,7 +329,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             'store_name'                        => 'OrderAttributes.SellerOrderAttributes.StoreName',
             'custom_information'                => 'OrderAttributes.SellerOrderAttributes.CustomInformation',
             'request_payment_authorization'     => 'OrderAttributes.RequestPaymentAuthorization',
-            'payment_service_provider_id'	=> 'OrderAttributes.PaymentServiceProviderAttributes.PaymentServiceProviderId',
+            'payment_service_provider_id'       => 'OrderAttributes.PaymentServiceProviderAttributes.PaymentServiceProviderId',
             'payment_service_provider_order_id' => 'OrderAttributes.PaymentServiceProviderAttributes.PaymentServiceProviderOrderId',
             'order_item_categories'             => array(),
             'mws_auth_token'                    => 'MWSAuthToken'
@@ -285,13 +352,94 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($apiParametersString, $expectedStringParams);
     }
 
-    public function testConfirmOrderReference()
+    public function testConfirmOrderReferenceWithAllSCA()
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' 		=> 'SellerId',
+            'merchant_id'               => 'SellerId',
             'amazon_order_reference_id' => 'AmazonOrderReferenceId',
-            'mws_auth_token' 		=> 'MWSAuthToken'
+            'mws_auth_token'            => 'MWSAuthToken',
+            'success_url'               => 'SuccessUrl',
+            'failure_url'               => 'FailureUrl',
+            'authorization_amount'      => 'AuthorizationAmount.Amount',
+            'currency_code'             => 'AuthorizationAmount.CurrencyCode'
+        );
+
+        $action = 'ConfirmOrderReference';
+
+        $parameters = $this->setParametersAndPost($fieldMappings, $action);
+        $expectedParameters = $parameters['expectedParameters'];
+        $apiCallParams = $parameters['apiCallParams'];
+
+        $expectedStringParams = $this->callPrivateMethod($client, 'calculateSignatureAndParametersToString', $expectedParameters);
+
+        $response = $client->confirmOrderReference($apiCallParams);
+
+        $apiParametersString = $client->getParameters();
+
+        $this->assertEquals($apiParametersString, $expectedStringParams);
+    }
+
+    public function testConfirmOrderReferenceWithAllButCurrencyCodeSCA()
+    {
+        $client = new Client($this->configParams);
+        $fieldMappings = array(
+            'merchant_id'               => 'SellerId',
+            'amazon_order_reference_id' => 'AmazonOrderReferenceId',
+            'mws_auth_token'            => 'MWSAuthToken',
+            'success_url'               => 'SuccessUrl',
+            'failure_url'               => 'FailureUrl',
+            'authorization_amount'      => 'AuthorizationAmount.Amount'
+        );
+
+        $action = 'ConfirmOrderReference';
+
+        $parameters = $this->setParametersAndPost($fieldMappings, $action);
+        $expectedParameters = $parameters['expectedParameters'];
+        $apiCallParams = $parameters['apiCallParams'];
+
+        $expectedParameters['AuthorizationAmount.CurrencyCode'] = 'USD'; # default from client
+        $expectedStringParams = $this->callPrivateMethod($client, 'calculateSignatureAndParametersToString', $expectedParameters);
+
+        $response = $client->confirmOrderReference($apiCallParams);
+
+        $apiParametersString = $client->getParameters();
+        $this->assertEquals($apiParametersString, $expectedStringParams);
+    }
+
+    public function testConfirmOrderReferenceWithUrlSCA()
+    {
+        $client = new Client($this->configParams);
+        $fieldMappings = array(
+            'merchant_id'               => 'SellerId',
+            'amazon_order_reference_id' => 'AmazonOrderReferenceId',
+            'mws_auth_token'            => 'MWSAuthToken',
+            'success_url'               => 'SuccessUrl',
+            'failure_url'               => 'FailureUrl'
+        );
+
+        $action = 'ConfirmOrderReference';
+
+        $parameters = $this->setParametersAndPost($fieldMappings, $action);
+        $expectedParameters = $parameters['expectedParameters'];
+        $apiCallParams = $parameters['apiCallParams'];
+
+        $expectedStringParams = $this->callPrivateMethod($client, 'calculateSignatureAndParametersToString', $expectedParameters);
+
+        $response = $client->confirmOrderReference($apiCallParams);
+
+        $apiParametersString = $client->getParameters();
+
+        $this->assertEquals($apiParametersString, $expectedStringParams);
+    }
+
+    public function testConfirmOrderReferenceWithoutSCA()
+    {
+        $client = new Client($this->configParams);
+        $fieldMappings = array(
+            'merchant_id'               => 'SellerId',
+            'amazon_order_reference_id' => 'AmazonOrderReferenceId',
+            'mws_auth_token'            => 'MWSAuthToken'
         );
 
         $action = 'ConfirmOrderReference';
@@ -313,10 +461,10 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' 		=> 'SellerId',
+            'merchant_id'               => 'SellerId',
             'amazon_order_reference_id' => 'AmazonOrderReferenceId',
-            'cancelation_reason' 	=> 'CancelationReason',
-            'mws_auth_token' 		=> 'MWSAuthToken'
+            'cancelation_reason'        => 'CancelationReason',
+            'mws_auth_token'            => 'MWSAuthToken'
         );
 
         $action = 'CancelOrderReference';
@@ -338,10 +486,10 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' 		=> 'SellerId',
+            'merchant_id'               => 'SellerId',
             'amazon_order_reference_id' => 'AmazonOrderReferenceId',
             'closure_reason'            => 'ClosureReason',
-            'mws_auth_token' 		=> 'MWSAuthToken'
+            'mws_auth_token'            => 'MWSAuthToken'
         );
 
         $action = 'CloseOrderReference';
@@ -388,16 +536,16 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' 		 => 'SellerId',
+            'merchant_id'                => 'SellerId',
             'amazon_order_reference_id'  => 'AmazonOrderReferenceId',
-            'authorization_amount' 	 => 'AuthorizationAmount.Amount',
-            'currency_code' 		 => 'AuthorizationAmount.CurrencyCode',
+            'authorization_amount'       => 'AuthorizationAmount.Amount',
+            'currency_code'              => 'AuthorizationAmount.CurrencyCode',
             'authorization_reference_id' => 'AuthorizationReferenceId',
-            'capture_now' 		 => 'CaptureNow',
+            'capture_now'                => 'CaptureNow',
             'seller_authorization_note'  => 'SellerAuthorizationNote',
-            'transaction_timeout' 	 => 'TransactionTimeout',
-            'soft_descriptor' 		 => 'SoftDescriptor',
-            'mws_auth_token' 		 => 'MWSAuthToken'
+            'transaction_timeout'        => 'TransactionTimeout',
+            'soft_descriptor'            => 'SoftDescriptor',
+            'mws_auth_token'             => 'MWSAuthToken'
         );
 
         $action = 'Authorize';
@@ -418,9 +566,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' => 'SellerId',
+            'merchant_id'             => 'SellerId',
             'amazon_authorization_id' => 'AmazonAuthorizationId',
-            'mws_auth_token' => 'MWSAuthToken'
+            'mws_auth_token'          => 'MWSAuthToken'
         );
 
         $action = 'GetAuthorizationDetails';
@@ -442,14 +590,14 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' 		=> 'SellerId',
-            'amazon_authorization_id' 	=> 'AmazonAuthorizationId',
-            'capture_amount' 		=> 'CaptureAmount.Amount',
-            'currency_code' 		=> 'CaptureAmount.CurrencyCode',
-            'capture_reference_id' 	=> 'CaptureReferenceId',
-            'seller_capture_note' 	=> 'SellerCaptureNote',
-            'soft_descriptor' 		=> 'SoftDescriptor',
-            'mws_auth_token' 		=> 'MWSAuthToken'
+            'merchant_id'             => 'SellerId',
+            'amazon_authorization_id' => 'AmazonAuthorizationId',
+            'capture_amount'          => 'CaptureAmount.Amount',
+            'currency_code'           => 'CaptureAmount.CurrencyCode',
+            'capture_reference_id'    => 'CaptureReferenceId',
+            'seller_capture_note'     => 'SellerCaptureNote',
+            'soft_descriptor'         => 'SoftDescriptor',
+            'mws_auth_token'          => 'MWSAuthToken'
         );
 
         $action = 'Capture';
@@ -471,9 +619,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' 	=> 'SellerId',
+            'merchant_id'       => 'SellerId',
             'amazon_capture_id' => 'AmazonCaptureId',
-            'mws_auth_token' 	=> 'MWSAuthToken'
+            'mws_auth_token'    => 'MWSAuthToken'
         );
 
         $action = 'GetCaptureDetails';
@@ -495,14 +643,14 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' 	  => 'SellerId',
+            'merchant_id'         => 'SellerId',
             'amazon_capture_id'   => 'AmazonCaptureId',
             'refund_reference_id' => 'RefundReferenceId',
-            'refund_amount' 	  => 'RefundAmount.Amount',
-            'currency_code' 	  => 'RefundAmount.CurrencyCode',
+            'refund_amount'       => 'RefundAmount.Amount',
+            'currency_code'       => 'RefundAmount.CurrencyCode',
             'seller_refund_note'  => 'SellerRefundNote',
-            'soft_descriptor' 	  => 'SoftDescriptor',
-            'mws_auth_token' 	  => 'MWSAuthToken'
+            'soft_descriptor'     => 'SoftDescriptor',
+            'mws_auth_token'      => 'MWSAuthToken'
         );
 
         $action = 'Refund';
@@ -524,9 +672,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' 	=> 'SellerId',
-            'amazon_refund_id'  => 'AmazonRefundId',
-            'mws_auth_token' 	=> 'MWSAuthToken'
+            'merchant_id'      => 'SellerId',
+            'amazon_refund_id' => 'AmazonRefundId',
+            'mws_auth_token'   => 'MWSAuthToken'
         );
 
         $action = 'GetRefundDetails';
@@ -538,6 +686,29 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $expectedStringParams = $this->callPrivateMethod($client, 'calculateSignatureAndParametersToString', $expectedParameters);
 
         $response = $client->getRefundDetails($apiCallParams);
+
+        $apiParametersString = $client->getParameters();
+
+        $this->assertEquals($apiParametersString, $expectedStringParams);
+    }
+
+    public function testGetMerchantAccountStatus()
+    {
+        $client = new Client($this->configParams);
+        $fieldMappings = array(
+            'merchant_id'    => 'SellerId',
+            'mws_auth_token' => 'MWSAuthToken'
+        );
+
+        $action = 'GetMerchantAccountStatus';
+
+        $parameters = $this->setParametersAndPost($fieldMappings, $action);
+        $expectedParameters = $parameters['expectedParameters'];
+        $apiCallParams = $parameters['apiCallParams'];
+
+        $expectedStringParams = $this->callPrivateMethod($client, 'calculateSignatureAndParametersToString', $expectedParameters);
+
+        $response = $client->getMerchantAccountStatus($apiCallParams);
 
         $apiParametersString = $client->getParameters();
 
@@ -571,19 +742,19 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' 		=> 'SellerId',
-            'id' 			=> 'Id',
-            'id_type' 			=> 'IdType',
-            'inherit_shipping_address' 	=> 'InheritShippingAddress',
-            'confirm_now' 		=> 'ConfirmNow',
-            'amount' 			=> 'OrderReferenceAttributes.OrderTotal.Amount',
-            'currency_code' 		=> 'OrderReferenceAttributes.OrderTotal.CurrencyCode',
-            'platform_id' 		=> 'OrderReferenceAttributes.PlatformId',
-            'seller_note' 		=> 'OrderReferenceAttributes.SellerNote',
-            'seller_order_id' 		=> 'OrderReferenceAttributes.SellerOrderAttributes.SellerOrderId',
-            'store_name' 		=> 'OrderReferenceAttributes.SellerOrderAttributes.StoreName',
-            'custom_information' 	=> 'OrderReferenceAttributes.SellerOrderAttributes.CustomInformation',
-            'mws_auth_token' 		=> 'MWSAuthToken'
+            'merchant_id'              => 'SellerId',
+            'id'                       => 'Id',
+            'id_type'                  => 'IdType',
+            'inherit_shipping_address' => 'InheritShippingAddress',
+            'confirm_now'              => 'ConfirmNow',
+            'amount'                   => 'OrderReferenceAttributes.OrderTotal.Amount',
+            'currency_code'            => 'OrderReferenceAttributes.OrderTotal.CurrencyCode',
+            'platform_id'              => 'OrderReferenceAttributes.PlatformId',
+            'seller_note'              => 'OrderReferenceAttributes.SellerNote',
+            'seller_order_id'          => 'OrderReferenceAttributes.SellerOrderAttributes.SellerOrderId',
+            'store_name'               => 'OrderReferenceAttributes.SellerOrderAttributes.StoreName',
+            'custom_information'       => 'OrderReferenceAttributes.SellerOrderAttributes.CustomInformation',
+            'mws_auth_token'           => 'MWSAuthToken'
         );
 
         $action = 'CreateOrderReferenceForId';
@@ -605,11 +776,11 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' 		  => 'SellerId',
+            'merchant_id'                 => 'SellerId',
             'amazon_billing_agreement_id' => 'AmazonBillingAgreementId',
-            'address_consent_token' 	  => 'AddressConsentToken',
-            'access_token' 	          => 'AccessToken',
-            'mws_auth_token' 		  => 'MWSAuthToken'
+            'address_consent_token'       => 'AddressConsentToken',
+            'access_token'                => 'AccessToken',
+            'mws_auth_token'              => 'MWSAuthToken'
         );
 
         $action = 'GetBillingAgreementDetails';
@@ -631,14 +802,14 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' 		  => 'SellerId',
+            'merchant_id'                 => 'SellerId',
             'amazon_billing_agreement_id' => 'AmazonBillingAgreementId',
-            'platform_id' 		  => 'BillingAgreementAttributes.PlatformId',
-            'seller_note' 		  => 'BillingAgreementAttributes.SellerNote',
+            'platform_id'                 => 'BillingAgreementAttributes.PlatformId',
+            'seller_note'                 => 'BillingAgreementAttributes.SellerNote',
             'seller_billing_agreement_id' => 'BillingAgreementAttributes.SellerBillingAgreementAttributes.SellerBillingAgreementId',
-            'custom_information' 	  => 'BillingAgreementAttributes.SellerBillingAgreementAttributes.CustomInformation',
-            'store_name' 		  => 'BillingAgreementAttributes.SellerBillingAgreementAttributes.StoreName',
-            'mws_auth_token' 		  => 'MWSAuthToken'
+            'custom_information'          => 'BillingAgreementAttributes.SellerBillingAgreementAttributes.CustomInformation',
+            'store_name'                  => 'BillingAgreementAttributes.SellerBillingAgreementAttributes.StoreName',
+            'mws_auth_token'              => 'MWSAuthToken'
         );
 
         $action = 'SetBillingAgreementDetails';
@@ -660,9 +831,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' 		  => 'SellerId',
+            'merchant_id'                 => 'SellerId',
             'amazon_billing_agreement_id' => 'AmazonBillingAgreementId',
-            'mws_auth_token' 		  => 'MWSAuthToken'
+            'mws_auth_token'              => 'MWSAuthToken'
         );
 
         $action = 'ConfirmBillingAgreement';
@@ -684,9 +855,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' 		  => 'SellerId',
+            'merchant_id'                 => 'SellerId',
             'amazon_billing_agreement_id' => 'AmazonBillingAgreementId',
-            'mws_auth_token' 		  => 'MWSAuthToken'
+            'mws_auth_token'              => 'MWSAuthToken'
         );
 
         $action = 'ValidateBillingAgreement';
@@ -708,22 +879,22 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' 			=> 'SellerId',
-            'amazon_billing_agreement_id' 	=> 'AmazonBillingAgreementId',
-            'authorization_reference_id' 	=> 'AuthorizationReferenceId',
-            'authorization_amount' 		=> 'AuthorizationAmount.Amount',
-            'currency_code' 			=> 'AuthorizationAmount.CurrencyCode',
-            'seller_authorization_note' 	=> 'SellerAuthorizationNote',
-            'transaction_timeout' 		=> 'TransactionTimeout',
-            'capture_now' 			=> 'CaptureNow',
-            'soft_descriptor' 			=> 'SoftDescriptor',
-            'seller_note' 			=> 'SellerNote',
-            'platform_id' 			=> 'PlatformId',
-            'custom_information' 		=> 'SellerOrderAttributes.CustomInformation',
-            'seller_order_id' 			=> 'SellerOrderAttributes.SellerOrderId',
-            'store_name' 			=> 'SellerOrderAttributes.StoreName',
-            'inherit_shipping_address' 		=> 'InheritShippingAddress',
-            'mws_auth_token' 			=> 'MWSAuthToken'
+            'merchant_id'                 => 'SellerId',
+            'amazon_billing_agreement_id' => 'AmazonBillingAgreementId',
+            'authorization_reference_id'  => 'AuthorizationReferenceId',
+            'authorization_amount'        => 'AuthorizationAmount.Amount',
+            'currency_code'               => 'AuthorizationAmount.CurrencyCode',
+            'seller_authorization_note'   => 'SellerAuthorizationNote',
+            'transaction_timeout'         => 'TransactionTimeout',
+            'capture_now'                 => 'CaptureNow',
+            'soft_descriptor'             => 'SoftDescriptor',
+            'seller_note'                 => 'SellerNote',
+            'platform_id'                 => 'PlatformId',
+            'custom_information'          => 'SellerOrderAttributes.CustomInformation',
+            'seller_order_id'             => 'SellerOrderAttributes.SellerOrderId',
+            'store_name'                  => 'SellerOrderAttributes.StoreName',
+            'inherit_shipping_address'    => 'InheritShippingAddress',
+            'mws_auth_token'              => 'MWSAuthToken'
         );
 
         $action = 'AuthorizeOnBillingAgreement';
@@ -745,10 +916,10 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->configParams);
         $fieldMappings = array(
-            'merchant_id' 		  => 'SellerId',
+            'merchant_id'                 => 'SellerId',
             'amazon_billing_agreement_id' => 'AmazonBillingAgreementId',
-            'closure_reason' 		  => 'ClosureReason',
-            'mws_auth_token' 		  => 'MWSAuthToken'
+            'closure_reason'              => 'ClosureReason',
+            'mws_auth_token'              => 'MWSAuthToken'
         );
 
         $action = 'CloseBillingAgreement';
@@ -919,6 +1090,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
                 $apiCallParams[$parm] = true;
             } elseif ($parm === 'order_item_categories') {
                 $apiCallParams[$parm] = array('Antiques', 'Electronics');
+            } elseif ($parm === 'order_status_list') {
+                $apiCallParams[$parm] = array('Open', 'Closed');
             } elseif (!isset($expectedParameters[$value])) {
                 $unique_id = uniqid();
                 $expectedParameters[$value] = $unique_id;
@@ -936,12 +1109,12 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $apiCallParams = array();
 
         if (array_key_exists('platform_id', $fieldMappings)) {
-	    $expectedParameters[$fieldMappings['platform_id']] = $this->configParams['platform_id'];
+            $expectedParameters[$fieldMappings['platform_id']] = $this->configParams['platform_id'];
             $apiCallParams['platform_id'] = $this->configParams['platform_id'];
-	}
+        }
 
         if (array_key_exists('currency_code', $fieldMappings)) {
-	    $expectedParameters[$fieldMappings['currency_code']] = 'TEST';
+            $expectedParameters[$fieldMappings['currency_code']] = 'TEST';
             $apiCallParams['currency_code'] = 'TEST';
         }
 

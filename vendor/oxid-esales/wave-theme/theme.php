@@ -27,7 +27,7 @@ $aTheme = array(
     'title'       => 'Wave',
     'description' => 'Wave is OXID`s official responsive theme based on the CSS framework Bootstrap 4.',
     'thumbnail'   => 'theme.jpg',
-    'version'     => '1.0.1',
+    'version'     => '1.2.0',
     'author'      => '<a href="http://www.oxid-esales.com" title="OXID eSales AG">OXID eSales AG</a>',
     'settings'    => array(
         array(
@@ -230,7 +230,7 @@ $aTheme = array(
             'name'        => 'sBackgroundPosVertical',
             'type'        => 'select',
             'value'       => 'top',
-            'constraints' => 'left|right|center',
+            'constraints' => 'top|bottom|center',
         ),
         array(
             'group'       => 'background',

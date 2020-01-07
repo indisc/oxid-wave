@@ -33,13 +33,6 @@ class ExpressCheckoutDispatcher extends \OxidEsales\PayPalModule\Controller\Disp
     protected $serviceType = 2;
 
     /**
-     * Action for express checkout process
-     *
-     * @var string
-     */
-    protected $userAction = "commit";
-
-    /**
      * Processes PayPal callback
      */
     public function processCallBack()
@@ -69,6 +62,7 @@ class ExpressCheckoutDispatcher extends \OxidEsales\PayPalModule\Controller\Disp
             $user = $this->getUser();
 
             $basket->setPayment("oxidpaypal");
+            $session->setVariable('paymentid', 'oxidpaypal');
 
             $prevOptionValue = $this->getConfig()->getConfigParam('blCalculateDelCostIfNotLoggedIn');
             if ($this->getPayPalConfig()->isDeviceMobile()) {

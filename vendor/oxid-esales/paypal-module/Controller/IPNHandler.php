@@ -35,7 +35,7 @@ class IPNHandler extends \OxidEsales\PayPalModule\Controller\FrontendController
      *
      * @var string
      */
-    protected $thisTemplate = 'ipnhandler.tpl';
+    protected $_sThisTemplate = 'ipnhandler.tpl';
 
     /**
      * PayPal request handler.
@@ -133,16 +133,18 @@ class IPNHandler extends \OxidEsales\PayPalModule\Controller\FrontendController
      *  - Call to check if request is valid (from PayPal and to correct shop).
      *  - Initiate payment status changes according to IPN information.
      *
-     * @return bool
+     * @return void
      */
     public function handleRequest()
     {
         $requestHandled = false;
+        $requestId = md5(microtime(true));
 
         $request = $this->getPayPalRequest();
         $logger = $this->getLogger();
         $logger->setTitle("IPN Request by PayPal");
         $logger->log([
+            'Request ID' => $requestId,
             'GET parameters' => $request->getGet(),
             'POST parameters' => $request->getPost()
         ]);
@@ -159,7 +161,11 @@ class IPNHandler extends \OxidEsales\PayPalModule\Controller\FrontendController
             $requestHandled = $processor->process();
         }
 
-        return $requestHandled;
+        $logger->setTitle("IPN Process result");
+        $logger->log([
+            'Request ID' => $requestId,
+            'Result' => $requestHandled
+        ]);
     }
 
     /**

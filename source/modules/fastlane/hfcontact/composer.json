@@ -1,0 +1,37 @@
+{
+  "name":        "fastlane/hfcontact",
+  "description": "Extension for kontakt",
+  "type":        "oxideshop-module",
+  "version": "1.0.0",
+  "keywords":    [
+    "oxid",
+    "modules",
+    "eShop",
+    "Editor"
+  ],
+  "homepage":    "https://www.fastlane.de",
+  "license":     [
+    "GPL-3.0",
+    "proprietary"
+  ],
+  "authors":     [
+    {
+      "name":  "fastlane.de | Codes and freedom",
+      "email": "nico@fastlane.de"
+    }
+  ],
+  "extra":       {
+    "oxideshop": {
+      "target-directory": "fastlane/hfC»ontact"
+    }
+  },
+  "require":     {
+    "php": ">=5.6"
+  },
+  "autoload": {
+    "psr-4": 
+    {
+      "Fastlane\\HfContact\\": "../../../../source/modules/fastlane/hfcontact/"
+    }
+  }
+}

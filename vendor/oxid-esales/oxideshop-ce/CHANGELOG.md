@@ -4,6 +4,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [6.3.6] - 2019-10-29
+
+### Fixed
+- Recover and use lost _preparePrice result in Article::_prepareModifiedPrice [PR-720](https://github.com/OXID-eSales/oxideshop_ce/pull/720)
+- Load amount price list same way on frontend and backend [#0006671](https://bugs.oxid-esales.com/view.php?id=6671) [PR-712](https://github.com/OXID-eSales/oxideshop_ce/pull/712)
+- Show product active check in admin panel when activation date has been set [#0006966](https://bugs.oxid-esales.com/view.php?id=6966)
+
+## [6.3.5] - 2019-07-30
+
+### Security
+- [Bug 7002](https://bugs.oxid-esales.com/view.php?id=7002)
+
+## [6.3.4] - 2019-05-24
+
+### Changed
+- Rename cust_lang.php files to cust_lang.php.dist
+  - `source/Application/views/admin/de/cust_lang.php.dist`
+  - `source/Application/views/admin/en/cust_lang.php.dist`
+
+### Fixed
+- Fix Bank code validation bug in Direct Debit [#0006939](https://bugs.oxid-esales.com/view.php?id=6939)
+
+## [6.3.3] - 2019-04-16
+
+### Fixed
+- Ensure temp file in tmp directory [PR-683](https://github.com/OXID-eSales/oxideshop_ce/pull/683)
+- Fix warning in inc_error.tpl [PR-690](https://github.com/OXID-eSales/oxideshop_ce/pull/690)
+- Fix url protocol in version tags [PR-696](https://github.com/OXID-eSales/oxideshop_ce/pull/696)
+- Use correct value for backing up the base language in email [PR-692](https://github.com/OXID-eSales/oxideshop_ce/pull/692)
+- Read config parameter by getConfigParam, not by getRequestParam [#0006968](https://bugs.oxid-esales.com/view.php?id=6968) [PR-698](https://github.com/OXID-eSales/oxideshop_ce/pull/698)
+
 ## [6.3.2] - 2019-01-22
 
 ### Added
@@ -132,6 +163,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - Use error_404_handler in article list controller in place of outdated 404 handling [PR-643](https://github.com/OXID-eSales/oxideshop_ce/pull/643)
+- Fix indents in config.inc.php.dist [PR-527](https://github.com/OXID-eSales/oxideshop_ce/pull/527)
+
+## [6.2.4] - 2019-10-29
+
+### Fixed
+- Improve gift registry search [#0006698](https://bugs.oxid-esales.com/view.php?id=6698)
+
+### Security
+- [Bug 7023](https://bugs.oxid-esales.com/view.php?id=7023)
+
+## [6.2.3] - 2019-07-30
+
+### Security
+- [Bug 7002](https://bugs.oxid-esales.com/view.php?id=7002)
+
+## [6.2.2] 2019-02-21
+
+### Fixed
+- Fix issue with shop roles readonly. [Bug 6851](https://bugs.oxid-esales.com/view.php?id=6851)
 
 ## [6.2.1] - 2018-07-31
 
@@ -442,9 +492,16 @@ See
 - [OXID eShop v6.0.0 Beta1: Detailed Code Changelog](https://oxidforge.org/en/oxid-eshop-v6-0-0-beta1-detailed-code-changelog.html)
 
 
+[6.3.6]: https://github.com/OXID-eSales/oxideshop_ce/compare/v6.3.5...v6.3.6
+[6.3.5]: https://github.com/OXID-eSales/oxideshop_ce/compare/v6.3.4...v6.3.5
+[6.3.4]: https://github.com/OXID-eSales/oxideshop_ce/compare/v6.3.3...v6.3.4
+[6.3.3]: https://github.com/OXID-eSales/oxideshop_ce/compare/v6.3.2...v6.3.3
 [6.3.2]: https://github.com/OXID-eSales/oxideshop_ce/compare/v6.3.1...v6.3.2
 [6.3.1]: https://github.com/OXID-eSales/oxideshop_ce/compare/v6.3.0...v6.3.1
 [6.3.0]: https://github.com/OXID-eSales/oxideshop_ce/compare/v6.2.1...v6.3.0
+[6.2.4]: https://github.com/OXID-eSales/oxideshop_ce/compare/v6.2.3...v6.2.4
+[6.2.3]: https://github.com/OXID-eSales/oxideshop_ce/compare/v6.2.2...v6.2.3
+[6.2.2]: https://github.com/OXID-eSales/oxideshop_ce/compare/v6.2.1...v6.2.2
 [6.2.1]: https://github.com/OXID-eSales/oxideshop_ce/compare/v6.2.0...v6.2.1
 [6.2.0]: https://github.com/OXID-eSales/oxideshop_ce/compare/v6.1.0...v6.2.0
 [6.1.0]: https://github.com/OXID-eSales/oxideshop_ce/compare/v6.0.0...v6.1.0

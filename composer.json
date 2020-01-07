@@ -7,18 +7,32 @@
   ],
   "minimum-stability": "stable",
   "require": {
-    "oxid-esales/oxideshop-metapackage-ce": "v6.1.2"
+    "oxid-esales/oxideshop-metapackage-ce": "v6.1.5",
+    "proudcommerce/psexceptionhandler": "dev-master",
+    "zunderweb/oxid-autoregister-namespaces": "^0.0.3",
+    "linslin/oxid6-example-module": "dev-master",
+    "topconcepts/oxid-cleverreach-6": "v4.1.0",
+    "protipps/technical_details": "*",
+    "cihaeuser/formbuilder": "^1.10",
+    "oxid-esales/extend-user-demo-module": "dev-master"
   },
   "require-dev": {
     "oxid-esales/testing-library": "^v5.0.4",
     "oxid-esales/coding-standards": "^v3.0.5",
     "incenteev/composer-parameter-handler": "~v2.0",
-    "oxid-esales/oxideshop-ide-helper": "^v3.1.2",
+    "oxid-esales/oxideshop-ide-helper": "^3.1",
     "oxid-esales/azure-theme": "^v1.4.2"
+
   },
   "autoload-dev": {
+    "classmap": [
+      "./source/modules/sc/sccp/"
+    ],
     "psr-4": {
-      "OxidEsales\\EshopCommunity\\Tests\\": "./vendor/oxid-esales/oxideshop-ce/tests"
+      "OxidEsales\\EshopCommunity\\Tests\\": "./vendor/oxid-esales/oxideshop-ce/tests",
+      "Sinkacom\\CreditPlusModule\\": "./source/modules/sc/sccp/",
+      "Fastlane\\HfContact\\": "./source/modules/fastlane/hfcontact/",
+      "Fastlane\\VetBonus\\": "./source/modules/fastlane/vetbonus/"
     }
   },
   "scripts": {
@@ -28,7 +42,15 @@
     ],
     "post-update-cmd": [
       "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-      "@oe:ide-helper:generate"
+      "@oe:ide-helper:generate",
+      "@oxrun:activate-modules",
+      "@oxrun:set-config"
+    ],
+    "oxrun:activate-modules": [
+      "./vendor/bin/oxrun module:multiactivate configs/modules.yml -c --shopDir=./source"
+    ],
+    "oxrun:set-config": [
+      "./vendor/bin/oxrun config:multiset configs/malls.yml --shopDir=./source"
     ],
     "oe:ide-helper:generate": [
       "if [ -f ./vendor/bin/oe-eshop-ide_helper ]; then oe-eshop-ide_helper; fi"
@@ -42,13 +64,27 @@
   "extra": {
     "incenteev-parameters": {
       "file": "test_config.yml",
-      "dist-file": "vendor/oxid-esales/testing-library/test_config.yml.dist",
+      "dist-finle": "vendor/oxid-esales/testing-library/test_config.yml.dist",
       "parameter-key": "mandatory_parameters",
       "env-map": {
         "shop_path": "SHOP_PATH",
         "shop_tests_path": "SHOP_TESTS_PATH",
         "partial_module_paths": "PARTIAL_MODULE_PATHS"
       }
+    }
+  },
+  "repositories": {
+    "oxideshop_composer_plugin": {
+      "type": "vcs",
+      "url": "https://github.com/OXID-eSales/oxideshop_composer_plugin.git"
+    },
+    "protipps/technical_details": {
+      "type": "path",
+      "url": "extensions/technical_details"
+    },
+    "oxid-esales/extend-user-demo-module": {
+      "type": "vcs",
+      "url": "https://github.com/OXID-eSales/extend-user-demo-module.git"
     }
   }
 }

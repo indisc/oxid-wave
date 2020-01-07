@@ -1,0 +1,88 @@
+/**
+CSS Styles for CreditPlus financing
+*/
+#financing-table {
+    width: 100%;
+    border: 1px solid #E1E1E1;
+    border-collapse: collapse;
+}
+#financing-table td {
+    border: 1px solid #E1E1E1;
+    padding: 2px;
+    text-align: center;
+}
+#financing-table .headrow {
+    font-weight: bold;
+    background-color: #E1E1E1;
+}
+#financing-mini-info {
+    font-size: 11px;
+    float: none;
+    clear: both;
+    padding-top: 10px;
+}
+#financing-mini-info a {
+    text-decoration: underline;
+    color: #00A666;
+    float: none;
+    margin-right: 0;
+}
+#financing-mini-info .price {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.sccp-need-to-pay-box {
+    border: 1px solid #008C56;
+    padding: 5px;
+}
+.sccp-need-to-pay-box.color2 {
+    border: 1px solid #A5DFB5;
+}
+.sccp-finance-error {
+    border: 1px solid #FF8C00;
+}
+.sccp-pangvtext {
+    padding-top: 10px;
+    font-size: 75%;
+}
+.sccp-basket-top-text {
+    padding-bottom: 10px;
+}
+a.sccp-continue-to-payment {
+    border: 1px solid #00723F;
+    border-radius: 3px;
+    background-color: #008C56;
+    padding: 15px;
+    display: block;
+    width: 200px;
+    text-align: center;
+    font-size: 22px;
+    margin: 0 auto;
+    text-decoration: none;
+    text-shadow: 0 1px 1px #660100;
+    color: #FFFFFF;
+}
+a.sccp-continue-to-payment:hover, a.sccp-continue-to-payment:active {
+    background-color: #00A666;
+    border-color: #008C4D;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+/* Fallback, wenn die jQuery UI CSS Anweisungen fehlen */
+.ui-widget-overlay {
+	background: #333 none repeat scroll 0 0;
+	opacity: 0.7;
+	position: absolute;
+	top: 0;
+	z-index: 3999;
+	width: 100%;
+}
+.ui-dialog {
+	position: absolute;
+	top: 0;
+	z-index: 4000;
+}
+.ui-dialog iframe {
+	border: 0 none transparent;
+}

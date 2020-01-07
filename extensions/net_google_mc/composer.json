@@ -1,0 +1,20 @@
+{
+  "name": "netensio/net_google_mc",
+  "description": "Netensio: Google Merchant Center",
+  "type": "oxideshop-module",
+  "keywords": ["netensio", "google", "merchant", "center", "module", "oxid"],
+  "homepage": "https://www.netensio.de",
+  "extra": {
+    "oxideshop": {
+      "target-directory": "netensio/net_google_mc"
+    }
+  },
+  "version": "2.4.3",
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Netensio\\GoogleMerchantCenter\\": "../../../source/modules/netensio/net_google_mc"
+    }
+  }
+}

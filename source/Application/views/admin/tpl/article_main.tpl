@@ -43,7 +43,7 @@ window.onload = function ()
     <input type="hidden" name="editlanguage" value="[{$editlanguage}]">
 </form>
 
-    <form name="myedit" id="myedit" action="[{$oViewConf->getSelfLink()}]" method="post" onSubmit="return copyLongDesc('oxarticles__oxlongdesc');" style="padding: 0px;margin: 0px;height:0px;">
+    <form name="myedit" id="myedit" action="[{$oViewConf->getSelfLink()}]" method="post" onSubmit="copyLongDesc('oxarticles__oxlongdesc'); copyLongDesc('oxarticles__d3longdesc2'); copyLongDesc('oxarticles__d3longdesc3');" style="padding: 0px;margin: 0px;height:0px;">
       [{$oViewConf->getHiddenSid()}]
       <input type="hidden" name="cl" value="article_main">
       <input type="hidden" name="fnc" value="">
@@ -51,7 +51,9 @@ window.onload = function ()
       <input type="hidden" name="voxid" value="[{$oxid}]">
       <input type="hidden" name="oxparentid" value="[{$oxparentid}]">
       <input type="hidden" name="editval[oxarticles__oxid]" value="[{$oxid}]">
-      <input type="hidden" name="editval[oxarticles__oxlongdesc]" value="">
+        <input type="hidden" name="editval[oxarticles__oxlongdesc]" value="">
+        <input type="hidden" name="editval[oxarticles__d3longdesc2]" value="">
+        <input type="hidden" name="editval[oxarticles__d3longdesc3]" value="">
       <table cellspacing="0" cellpadding="0" border="0" style="width:98%;">
         <tr>
           <td valign="top" class="edittext" style="padding-top:10px;padding-left:10px;">
@@ -288,9 +290,13 @@ window.onload = function ()
           </td>
     <!-- Anfang rechte Seite -->
           <td valign="top" class="edittext" align="left" style="width:100%;height:99%;padding-left:5px;padding-bottom:30px;padding-top:10px;">
-            [{block name="admin_article_main_editor"}]
-              [{include file="include/editor.tpl"}]
-            [{/block}]
+              [{block name="admin_article_main_editor"}]
+              [{include file="include/editor.tpl" checkrights='oxlongdesc'}]
+              <h2>Zusammensetzung</h2>
+              [{$editorct2}]
+              <h2>Fütterungsempfehlung</h2>
+              [{$editorct3}]
+              [{/block}]
           </td>
     <!-- Ende rechte Seite -->
         </tr>

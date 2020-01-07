@@ -52,10 +52,9 @@
                     <div class="col-12 col-lg-5">
                         [{block name="widget_product_listitem_infogrid_gridpicture"}]
                             <div class="picture text-center">
-                                [{*<a href="[{$_productLink}]" title="[{$product->oxarticles__oxtitle->value}]
-                                [{$product->oxarticles__oxvarselect->value}]">*}]
+                                <a href="[{$_productLink}]" title="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]">
                                     <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-src="[{$product->getThumbnailUrl()}]" alt="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]" class="img-fluid">
-                                [{*</a>*}]
+                                </a>
                             </div>
                         [{/block}]
                     </div>

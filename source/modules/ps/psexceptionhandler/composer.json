@@ -1,0 +1,25 @@
+{
+  "name": "proudcommerce/psexceptionhandler",
+  "description": "psExceptionHandler - Extended exception/throwable handling for OXID 6.",
+  "type": "oxideshop-module",
+  "keywords": [
+    "oxid",
+    "modules",
+    "exception",
+    "debug"
+  ],
+  "homepage": "https://github.com/proudcommerce/psExceptionHandler",
+  "license": [
+    "GNU"
+  ],
+  "autoload": {
+    "psr-4": {
+      "ProudSourcing\\ExceptionHandler\\": "../../../source/modules/ps/psexceptionhandler"
+    }
+  },
+  "extra": {
+    "oxideshop": {
+      "target-directory": "ps/psexceptionhandler"
+    }
+  }
+}

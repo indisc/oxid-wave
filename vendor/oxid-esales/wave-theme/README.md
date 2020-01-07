@@ -2,7 +2,7 @@
 
 ## General Information
 
-*Wave* is a responsive theme for all OXID eShop editions.
+*Wave* is a responsive theme for all OXID eShop editions. Theme is built on the top of [Flow theme](https://github.com/OXID-eSales/flow_theme).
 
 ## Installation
 If you want to extend the theme you need to clone the repository (see section development) as some soures are ignored on composer installation. 
@@ -59,7 +59,7 @@ Installation on ubuntu system:
 
 	```
     cd DOCUMENT_ROOT/Application/views/wave/
-    sudo npm install
+    npm install
     ```
 
 4. Now its possible to regenerate "wave" theme assets by running ``grunt`` default

@@ -1,0 +1,88 @@
+/out/media/*
+!/out/media/dir.txt
+!/out/pictures/
+/out/pictures/*
+!/out/pictures/dir.txt
+!/out/pictures/generated/
+/out/pictures/generated/*
+!/out/pictures/generated/dir.txt
+!/out/pictures/master/
+/out/pictures/master/*
+!/out/pictures/master/nopic.jpg
+!/out/pictures/media/
+/out/pictures/media/*
+!/out/pictures/media/dir.txt
+!/out/pictures/promo/
+/out/pictures/promo/*
+!/out/pictures/promo/dir.txt
+!/out/pictures/wysiwigpro/
+/out/pictures/wysiwigpro/*
+!/out/pictures/wysiwigpro/dir.txt
+!/out/pictures/wysiwigpro/Model_form_for_withdrawal_de.pdf
+!/out/pictures/wysiwigpro/Model_form_for_withdrawal_en.pdf
+/widgets/bewertungen.gif
+/conf-alt/
+/config.inc.php
+/robots.txt
+/setup/*
+/.project
+/.settings/org.eclipse.core.resources.prefs
+*.*~
+*.BAK*
+*OLD*
+/*.mp4
+*.save
+/*.jpg
+/oxchkversion.php
+
+
+# ignore temp backups from editors
+*~
+*.bak
+
+# doxygen files
+Doxyfile
+
+# patches
+*.patch
+
+# kdevelop files
+*.kdevelop.pcs
+*.kdev4
+
+# eclipse project files
+.project
+.cproject
+.settings
+
+# PhpStorm .idea
+.idea
+
+# TeX STUFF
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.dvi
+*.gz
+*.brf
+*.lbl
+*.toc
+
+# apple
+.apdisk
+
+# paypal oxid module
+/modules/oe/oepaypal/logs/log.txt
+
+# ioly
+.cookbooks.db
+.recipes.db
+cookbook.ioly.zip
+ioly.php
+.digest.db
+
+# google
+google*.html
+sitemap*.xml

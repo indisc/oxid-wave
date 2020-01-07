@@ -1,0 +1,17 @@
+# Exclude everything, basically protecting the openssl keys and certs
+Deny From All
+Satisfy All
+
+# Allow css and logo
+<FilesMatch "sinkacom\.gif">
+Allow From All
+</FilesMatch>
+<FilesMatch "sccp\.css">
+Allow From All
+</FilesMatch>
+<FilesMatch ".*\.crt">
+Allow From All
+</FilesMatch>
+<FilesMatch ".*\.png">
+Allow From All
+</FilesMatch>

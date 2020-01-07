@@ -32,6 +32,7 @@ use TopConcepts\Klarna\Core\KlarnaPayment;
 use TopConcepts\Klarna\Core\KlarnaPaymentsClient;
 use TopConcepts\Klarna\Core\KlarnaUtils;
 use TopConcepts\Klarna\Core\Exception\KlarnaClientException;
+use TopConcepts\Klarna\Model\KlarnaPaymentHelper;
 use TopConcepts\Klarna\Model\KlarnaUser;
 use TopConcepts\Klarna\Model\KlarnaPayment as KlarnaPaymentModel;
 use OxidEsales\Eshop\Application\Model\Basket;
@@ -90,6 +91,11 @@ class KlarnaOrderController extends KlarnaOrderController_parent
 
         parent::init();
 
+        //Re-set country to session if empty
+        if(empty(Registry::getSession()->getVariable('sCountryISO')) && !empty($this->getUser())) {
+            Registry::getSession()->setVariable('sCountryISO', $this->getUser()->getUserCountryISO2());
+        }
+
         if (KlarnaUtils::isKlarnaCheckoutEnabled()) {
 
             $oConfig = Registry::getConfig();
@@ -147,7 +153,7 @@ class KlarnaOrderController extends KlarnaOrderController_parent
      *
      *
      * @param $action
-     * @param string $requestBody
+     * @param $requestBody
      * @param $url
      * @param $response
      * @param $errors
@@ -157,15 +163,14 @@ class KlarnaOrderController extends KlarnaOrderController_parent
      */
     protected function logKlarnaData($action, $requestBody, $url, $response, $errors, $redirectUrl = '')
     {
-        $request  = json_decode($requestBody, true);
-        $order_id = isset($request['order_id']) ? $request['order_id'] : '';
+        $order_id = isset($requestBody['order_id']) ? $requestBody['order_id'] : '';
 
         $oKlarnaLog = new KlarnaLogs;
         $aData      = array(
             'tcklarna_logs__tcklarna_method'      => $action,
             'tcklarna_logs__tcklarna_url'         => $url,
             'tcklarna_logs__tcklarna_orderid'     => $order_id,
-            'tcklarna_logs__tcklarna_requestraw'  => $requestBody .
+            'tcklarna_logs__tcklarna_requestraw'  => json_encode($requestBody) .
                                                      " \nERRORS:" . var_export($errors, true) .
                                                      " \nHeader Location:" . $redirectUrl,
             'tcklarna_logs__tcklarna_responseraw' => $response,
@@ -268,7 +273,7 @@ class KlarnaOrderController extends KlarnaOrderController_parent
         $oBasket = Registry::getSession()->getBasket();
         $paymentId = $oBasket->getPaymentId();
 
-        if(KlarnaPaymentModel::isKlarnaPayment($paymentId)){
+        if(KlarnaPaymentHelper::isKlarnaPayment($paymentId)){
             /**
              * sDelAddrMD5 value is up to date with klarna user data (we updated user object in the init method)
              *  It is required later to validate user data before order creation
@@ -380,6 +385,16 @@ class KlarnaOrderController extends KlarnaOrderController_parent
     protected function kcoBeforeExecute()
     {
         try {
+            $oBasket      = Registry::getSession()->getBasket();
+            $oKlarnaOrder = $this->initKlarnaOrder($oBasket);
+            $oKlarnaOrder->validateKlarnaB2B();
+            if($oKlarnaOrder->isError()) {
+                $oKlarnaOrder->displayErrors();
+                Registry::getUtils()->redirect(Registry::getConfig()->getShopSecureHomeUrl() . 'cl=order', false, 302);
+
+                return;
+            }
+
             $this->_validateUser($this->_aOrderData);
         } catch (StandardException $exception) {
             $this->_aResultErrors[] = $exception->getMessage();
@@ -1184,5 +1199,15 @@ class KlarnaOrderController extends KlarnaOrderController_parent
         }
 
         return $sDelAddress;
+    }
+
+    /**
+     * @param $oBasket
+     * @return KlarnaOrder
+     * @throws \OxidEsales\EshopCommunity\Core\Exception\SystemComponentException
+     */
+    protected function initKlarnaOrder($oBasket)
+    {
+        return new KlarnaOrder($oBasket, $this->_oUser);
     }
 }

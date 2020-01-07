@@ -4,25 +4,28 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a55becb6f74d28186abfadb477cdebe0",
+    "content-hash": "b842652eb73ac8000ef7b90076c4878a",
     "packages": [
         {
             "name": "amzn/amazon-pay-sdk-php",
-            "version": "3.2.0",
+            "version": "3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/amzn/amazon-pay-sdk-php.git",
-                "reference": "0b96d1eaffa9d5c9a97e3c8cbc2d0667c390b929"
+                "reference": "aff849d831b95469d68708ac1bdb316a56896e4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amzn/amazon-pay-sdk-php/zipball/0b96d1eaffa9d5c9a97e3c8cbc2d0667c390b929",
-                "reference": "0b96d1eaffa9d5c9a97e3c8cbc2d0667c390b929",
+                "url": "https://api.github.com/repos/amzn/amazon-pay-sdk-php/zipball/aff849d831b95469d68708ac1bdb316a56896e4c",
+                "reference": "aff849d831b95469d68708ac1bdb316a56896e4c",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4"
             },
             "type": "library",
             "autoload": {
@@ -51,24 +54,24 @@
                 "payment",
                 "payments"
             ],
-            "time": "2017-11-28T23:40:51+00:00"
+            "time": "2019-02-11T16:32:17+00:00"
         },
         {
             "name": "bestit/amazonpay4oxid",
-            "version": "3.2.2",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bestit/amazon-pay-oxid.git",
-                "reference": "c123d802369dc4a218f1b13aad7ae022e094ce50"
+                "reference": "f31d7ca0599bffb2e91bdf9a4c5d55c85343f2b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bestit/amazon-pay-oxid/zipball/c123d802369dc4a218f1b13aad7ae022e094ce50",
-                "reference": "c123d802369dc4a218f1b13aad7ae022e094ce50",
+                "url": "https://api.github.com/repos/bestit/amazon-pay-oxid/zipball/f31d7ca0599bffb2e91bdf9a4c5d55c85343f2b7",
+                "reference": "f31d7ca0599bffb2e91bdf9a4c5d55c85343f2b7",
                 "shasum": ""
             },
             "require": {
-                "amzn/amazon-pay-sdk-php": "~3.2.0",
+                "amzn/amazon-pay-sdk-php": "~3.4.1",
                 "ext-curl": "*",
                 "ext-openssl": "*",
                 "lib-curl": ">=7.26.0",
@@ -103,29 +106,74 @@
                 "eshop",
                 "modules"
             ],
-            "time": "2018-11-21T14:27:58+00:00"
+            "time": "2019-05-27T08:21:00+00:00"
         },
         {
-            "name": "composer/ca-bundle",
-            "version": "1.1.3",
+            "name": "cihaeuser/formbuilder",
+            "version": "1.10.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "8afa52cd417f4ec417b4bfe86b68106538a87660"
+                "url": "https://github.com/Sioweb/OxidFormBuilder.git",
+                "reference": "41198a29e1853beee14b57b3c47ad60ae9a042bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/8afa52cd417f4ec417b4bfe86b68106538a87660",
-                "reference": "8afa52cd417f4ec417b4bfe86b68106538a87660",
+                "url": "https://api.github.com/repos/Sioweb/OxidFormBuilder/zipball/41198a29e1853beee14b57b3c47ad60ae9a042bc",
+                "reference": "41198a29e1853beee14b57b3c47ad60ae9a042bc",
+                "shasum": ""
+            },
+            "require": {
+                "oxidprojects/dependency-injection": "*",
+                "php": ">=7.0",
+                "sioweb/formgenerator": "*"
+            },
+            "type": "oxideshop-module",
+            "extra": {
+                "oxideshop": {
+                    "blacklist-filter": [
+                        "documentation/**/*.*"
+                    ],
+                    "target-directory": "ci-haeuser/FormBuilder"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ci\\Oxid\\FormBuilder\\": "../../../source/modules/ci-haeuser/FormBuilder/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "description": "Formulargenerator for oxid 6 front- and backend.",
+            "homepage": "https://www.seipp.com",
+            "keywords": [
+                "OXID",
+                "modules"
+            ],
+            "time": "2019-07-10T12:28:34+00:00"
+        },
+        {
+            "name": "composer/ca-bundle",
+            "version": "1.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/ca-bundle.git",
+                "reference": "10bb96592168a0f8e8f6dcde3532d9fa50b0b527"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/10bb96592168a0f8e8f6dcde3532d9fa50b0b527",
+                "reference": "10bb96592168a0f8e8f6dcde3532d9fa50b0b527",
                 "shasum": ""
             },
             "require": {
                 "ext-openssl": "*",
                 "ext-pcre": "*",
-                "php": "^5.3.2 || ^7.0"
+                "php": "^5.3.2 || ^7.0 || ^8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || 6.5 - 8",
                 "psr/log": "^1.0",
                 "symfony/process": "^2.5 || ^3.0 || ^4.0"
             },
@@ -159,20 +207,20 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2018-10-18T06:09:13+00:00"
+            "time": "2019-08-30T08:44:50+00:00"
         },
         {
             "name": "composer/composer",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "d8aef3af866b28786ce9b8647e52c42496436669"
+                "reference": "314aa57fdcfc942065996f59fb73a8b3f74f3fa5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/d8aef3af866b28786ce9b8647e52c42496436669",
-                "reference": "d8aef3af866b28786ce9b8647e52c42496436669",
+                "url": "https://api.github.com/repos/composer/composer/zipball/314aa57fdcfc942065996f59fb73a8b3f74f3fa5",
+                "reference": "314aa57fdcfc942065996f59fb73a8b3f74f3fa5",
                 "shasum": ""
             },
             "require": {
@@ -208,7 +256,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8-dev"
+                    "dev-master": "1.9-dev"
                 }
             },
             "autoload": {
@@ -232,27 +280,27 @@
                     "homepage": "http://seld.be"
                 }
             ],
-            "description": "Composer helps you declare, manage and install dependencies of PHP projects, ensuring you have the right stack everywhere.",
+            "description": "Composer helps you declare, manage and install dependencies of PHP projects. It ensures you have the right stack everywhere.",
             "homepage": "https://getcomposer.org/",
             "keywords": [
                 "autoload",
                 "dependency",
                 "package"
             ],
-            "time": "2018-12-03T09:31:16+00:00"
+            "time": "2019-08-02T18:55:33+00:00"
         },
         {
             "name": "composer/semver",
-            "version": "1.4.2",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "c7cb9a2095a074d131b65a8a0cd294479d785573"
+                "reference": "46d9139568ccb8d9e7cdd4539cab7347568a5e2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/c7cb9a2095a074d131b65a8a0cd294479d785573",
-                "reference": "c7cb9a2095a074d131b65a8a0cd294479d785573",
+                "url": "https://api.github.com/repos/composer/semver/zipball/46d9139568ccb8d9e7cdd4539cab7347568a5e2e",
+                "reference": "46d9139568ccb8d9e7cdd4539cab7347568a5e2e",
                 "shasum": ""
             },
             "require": {
@@ -301,28 +349,27 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2016-08-30T16:08:34+00:00"
+            "time": "2019-03-19T17:25:45+00:00"
         },
         {
             "name": "composer/spdx-licenses",
-            "version": "1.5.0",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/spdx-licenses.git",
-                "reference": "7a9556b22bd9d4df7cad89876b00af58ef20d3a2"
+                "reference": "7ac1e6aec371357df067f8a688c3d6974df68fa5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/7a9556b22bd9d4df7cad89876b00af58ef20d3a2",
-                "reference": "7a9556b22bd9d4df7cad89876b00af58ef20d3a2",
+                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/7ac1e6aec371357df067f8a688c3d6974df68fa5",
+                "reference": "7ac1e6aec371357df067f8a688c3d6974df68fa5",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.2 || ^7.0"
+                "php": "^5.3.2 || ^7.0 || ^8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5",
-                "phpunit/phpunit-mock-objects": "2.3.0 || ^3.0"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || 6.5 - 7"
             },
             "type": "library",
             "extra": {
@@ -362,20 +409,20 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2018-11-01T09:45:54+00:00"
+            "time": "2019-07-29T10:31:59+00:00"
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "1.3.1",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "dc523135366eb68f22268d069ea7749486458562"
+                "reference": "46867cbf8ca9fb8d60c506895449eb799db1184f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/dc523135366eb68f22268d069ea7749486458562",
-                "reference": "dc523135366eb68f22268d069ea7749486458562",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/46867cbf8ca9fb8d60c506895449eb799db1184f",
+                "reference": "46867cbf8ca9fb8d60c506895449eb799db1184f",
                 "shasum": ""
             },
             "require": {
@@ -406,7 +453,7 @@
                 "Xdebug",
                 "performance"
             ],
-            "time": "2018-11-29T10:59:02+00:00"
+            "time": "2019-05-27T17:52:04+00:00"
         },
         {
             "name": "ddoe/wysiwyg-editor-module",
@@ -876,20 +923,23 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "v1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c"
+                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/83893c552fd2045dd78aef794c31e694c37c0b8c",
-                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/1febd6c3ef84253d7c815bed85fc622ad207a9f8",
+                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.5"
             },
             "type": "library",
             "extra": {
@@ -898,8 +948,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Doctrine\\Common\\Lexer\\": "lib/"
+                "psr-4": {
+                    "Doctrine\\Common\\Lexer\\": "lib/Doctrine/Common/Lexer"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -920,13 +970,16 @@
                     "email": "schmittjoh@gmail.com"
                 }
             ],
-            "description": "Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.",
-            "homepage": "http://www.doctrine-project.org",
+            "description": "PHP Doctrine Lexer parser library that can be used in Top-Down, Recursive Descent Parsers.",
+            "homepage": "https://www.doctrine-project.org/projects/lexer.html",
             "keywords": [
+                "annotations",
+                "docblock",
                 "lexer",
-                "parser"
+                "parser",
+                "php"
             ],
-            "time": "2014-09-09T13:34:57+00:00"
+            "time": "2019-06-08T11:03:04+00:00"
         },
         {
             "name": "doctrine/migrations",
@@ -1069,17 +1122,65 @@
             "time": "2019-01-14T23:55:14+00:00"
         },
         {
-            "name": "monolog/monolog",
-            "version": "1.24.0",
+            "name": "linslin/oxid6-example-module",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266"
+                "url": "https://github.com/linslin/oxid6-example-module.git",
+                "reference": "09490e72e77215b07144a9f30c0e9595f24cfd00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
-                "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
+                "url": "https://api.github.com/repos/linslin/oxid6-example-module/zipball/09490e72e77215b07144a9f30c0e9595f24cfd00",
+                "reference": "09490e72e77215b07144a9f30c0e9595f24cfd00",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "type": "oxideshop-module",
+            "extra": {
+                "oxideshop": {
+                    "target-directory": "linslin/oxid6-example-module"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "linslin\\oxid6ExampleModule\\": "../../../source/modules/linslin/oxid6-example-module"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0",
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "linslin.org UG | Codes and freedom",
+                    "email": "info@linslin.org"
+                }
+            ],
+            "homepage": "https://www.linslin.org",
+            "keywords": [
+                "OXID",
+                "editor",
+                "eshop",
+                "modules"
+            ],
+            "time": "2017-12-06T14:32:19+00:00"
+        },
+        {
+            "name": "monolog/monolog",
+            "version": "1.25.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "70e65a5470a42cfec1a7da00d30edb6e617e8dcf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/70e65a5470a42cfec1a7da00d30edb6e617e8dcf",
+                "reference": "70e65a5470a42cfec1a7da00d30edb6e617e8dcf",
                 "shasum": ""
             },
             "require": {
@@ -1144,7 +1245,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2018-11-05T09:00:11+00:00"
+            "time": "2019-09-06T13:49:17+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -1261,17 +1362,58 @@
             "time": "2016-11-04T15:53:15+00:00"
         },
         {
-            "name": "oxid-esales/flow-theme",
-            "version": "v3.1.0",
+            "name": "oxid-esales/extend-user-demo-module",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/OXID-eSales/flow_theme.git",
-                "reference": "cd06275f5668949703dfb3a29a2a210845405f94"
+                "url": "https://github.com/OXID-eSales/extend-user-demo-module.git",
+                "reference": "207020a29d29030a5a054176302030c634975e97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OXID-eSales/flow_theme/zipball/cd06275f5668949703dfb3a29a2a210845405f94",
-                "reference": "cd06275f5668949703dfb3a29a2a210845405f94",
+                "url": "https://api.github.com/repos/OXID-eSales/extend-user-demo-module/zipball/207020a29d29030a5a054176302030c634975e97",
+                "reference": "207020a29d29030a5a054176302030c634975e97",
+                "shasum": ""
+            },
+            "type": "oxideshop-module",
+            "extra": {
+                "oxideshop": {
+                    "target-directory": "oe/extenduser"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OxidEsales\\ExtendUser\\": "../../../source/modules/oe/extenduser"
+                }
+            },
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "description": "This module purpose is to show how to extend OXID eShop updatable fields functionality.",
+            "homepage": "https://www.oxid-esales.com/en/home.html",
+            "keywords": [
+                "eShop",
+                "modules",
+                "oxid"
+            ],
+            "support": {
+                "source": "https://github.com/OXID-eSales/extend-user-demo-module/tree/master",
+                "issues": "https://github.com/OXID-eSales/extend-user-demo-module/issues"
+            },
+            "time": "2019-01-28T13:56:43+00:00"
+        },
+        {
+            "name": "oxid-esales/flow-theme",
+            "version": "v3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/OXID-eSales/flow_theme.git",
+                "reference": "9d0ebd40cb67ad2f617acccc7c5e24e96c885a16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/OXID-eSales/flow_theme/zipball/9d0ebd40cb67ad2f617acccc7c5e24e96c885a16",
+                "reference": "9d0ebd40cb67ad2f617acccc7c5e24e96c885a16",
                 "shasum": ""
             },
             "type": "oxideshop-theme",
@@ -1294,8 +1436,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-3.0-only",
-                "proprietary"
+                "GPL-3.0-only"
             ],
             "description": "This is Flow Theme for OXID eShop.",
             "homepage": "https://www.oxid-esales.com/en/home.html",
@@ -1304,24 +1445,24 @@
                 "eshop",
                 "themes"
             ],
-            "time": "2019-01-18T12:42:40+00:00"
+            "time": "2019-07-12T14:08:30+00:00"
         },
         {
             "name": "oxid-esales/gdpr-optin-module",
-            "version": "v2.1.2",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OXID-eSales/gdpr-optin-module.git",
-                "reference": "e04eae20c3e782bb0cba4dd66f4a8e9c3b7acda5"
+                "reference": "bf66736a112c1f0de189bac14f397e6eb3110213"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OXID-eSales/gdpr-optin-module/zipball/e04eae20c3e782bb0cba4dd66f4a8e9c3b7acda5",
-                "reference": "e04eae20c3e782bb0cba4dd66f4a8e9c3b7acda5",
+                "url": "https://api.github.com/repos/OXID-eSales/gdpr-optin-module/zipball/bf66736a112c1f0de189bac14f397e6eb3110213",
+                "reference": "bf66736a112c1f0de189bac14f397e6eb3110213",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6"
+                "php": ">=7.0"
             },
             "type": "oxideshop-module",
             "extra": {
@@ -1339,8 +1480,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-3.0-only",
-                "proprietary"
+                "GPL-3.0-only"
             ],
             "description": "This is the GDPR opt-in module for the OXID eShop.",
             "homepage": "https://www.oxid-esales.com/en/home.html",
@@ -1349,20 +1489,20 @@
                 "eshop",
                 "modules"
             ],
-            "time": "2018-10-11T14:36:30+00:00"
+            "time": "2019-07-15T16:23:42+00:00"
         },
         {
             "name": "oxid-esales/oxideshop-ce",
-            "version": "v6.3.2",
+            "version": "v6.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OXID-eSales/oxideshop_ce.git",
-                "reference": "05b11e27abb4d6fd894ef2d0c983569be2f198ad"
+                "reference": "28c94ee711662d4880f7dbb9238e1da468aa7b90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OXID-eSales/oxideshop_ce/zipball/05b11e27abb4d6fd894ef2d0c983569be2f198ad",
-                "reference": "05b11e27abb4d6fd894ef2d0c983569be2f198ad",
+                "url": "https://api.github.com/repos/OXID-eSales/oxideshop_ce/zipball/28c94ee711662d4880f7dbb9238e1da468aa7b90",
+                "reference": "28c94ee711662d4880f7dbb9238e1da468aa7b90",
                 "shasum": ""
             },
             "require": {
@@ -1419,8 +1559,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-3.0-only",
-                "proprietary"
+                "GPL-3.0-only"
             ],
             "description": "This package contains OXID eShop CE source code.",
             "homepage": "https://www.oxid-esales.com/en/home.html",
@@ -1429,20 +1568,20 @@
                 "eshop",
                 "modules"
             ],
-            "time": "2019-01-22T14:49:01+00:00"
+            "time": "2019-10-29T10:42:01+00:00"
         },
         {
             "name": "oxid-esales/oxideshop-composer-plugin",
-            "version": "v2.0.3",
+            "version": "v2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OXID-eSales/oxideshop_composer_plugin.git",
-                "reference": "630dc51fb0389dcaca8eefa9e57d25ef3e51c79b"
+                "reference": "d801d338f118bc6456272943a256cfdfdb759a30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OXID-eSales/oxideshop_composer_plugin/zipball/630dc51fb0389dcaca8eefa9e57d25ef3e51c79b",
-                "reference": "630dc51fb0389dcaca8eefa9e57d25ef3e51c79b",
+                "url": "https://api.github.com/repos/OXID-eSales/oxideshop_composer_plugin/zipball/d801d338f118bc6456272943a256cfdfdb759a30",
+                "reference": "d801d338f118bc6456272943a256cfdfdb759a30",
                 "shasum": ""
             },
             "require": {
@@ -1465,7 +1604,11 @@
                     "OxidEsales\\ComposerPlugin\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "OxidEsales\\ComposerPlugin\\Tests\\": "tests/"
+                }
+            },
             "license": [
                 "GPL-3.0-only"
             ],
@@ -1475,7 +1618,10 @@
                 "oxidEshop",
                 "plugin"
             ],
-            "time": "2018-07-18T14:55:25+00:00"
+            "support": {
+                "source": "https://github.com/OXID-eSales/oxideshop_composer_plugin/tree/v2.0.4"
+            },
+            "time": "2019-07-16T09:02:10+00:00"
         },
         {
             "name": "oxid-esales/oxideshop-db-views-generator",
@@ -1510,16 +1656,16 @@
         },
         {
             "name": "oxid-esales/oxideshop-demodata-ce",
-            "version": "v6.0.1",
+            "version": "v6.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OXID-eSales/oxideshop_demodata_ce.git",
-                "reference": "4f8de0dc2d8f0165d8ab2ea839549551dcb0c1ec"
+                "reference": "b5091a31424116b1303a75039e9e71aa366e9909"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OXID-eSales/oxideshop_demodata_ce/zipball/4f8de0dc2d8f0165d8ab2ea839549551dcb0c1ec",
-                "reference": "4f8de0dc2d8f0165d8ab2ea839549551dcb0c1ec",
+                "url": "https://api.github.com/repos/OXID-eSales/oxideshop_demodata_ce/zipball/b5091a31424116b1303a75039e9e71aa366e9909",
+                "reference": "b5091a31424116b1303a75039e9e71aa366e9909",
                 "shasum": ""
             },
             "type": "oxideshop-demodata",
@@ -1534,7 +1680,7 @@
                 "demodata",
                 "eshop"
             ],
-            "time": "2018-01-24T16:26:58+00:00"
+            "time": "2019-04-26T08:45:53+00:00"
         },
         {
             "name": "oxid-esales/oxideshop-demodata-installer",
@@ -1655,26 +1801,26 @@
         },
         {
             "name": "oxid-esales/oxideshop-metapackage-ce",
-            "version": "v6.1.2",
+            "version": "v6.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OXID-eSales/oxideshop_metapackage_ce.git",
-                "reference": "1500712ed9206d01d94b1c3591fa4988fa2b19b8"
+                "reference": "e74e777b91ff17a3146f746a93277ec5c7c621e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OXID-eSales/oxideshop_metapackage_ce/zipball/1500712ed9206d01d94b1c3591fa4988fa2b19b8",
-                "reference": "1500712ed9206d01d94b1c3591fa4988fa2b19b8",
+                "url": "https://api.github.com/repos/OXID-eSales/oxideshop_metapackage_ce/zipball/e74e777b91ff17a3146f746a93277ec5c7c621e7",
+                "reference": "e74e777b91ff17a3146f746a93277ec5c7c621e7",
                 "shasum": ""
             },
             "require": {
-                "amzn/amazon-pay-sdk-php": "3.2.0",
-                "bestit/amazonpay4oxid": "3.2.2",
-                "composer/ca-bundle": "1.1.3",
-                "composer/composer": "1.8.0",
-                "composer/semver": "1.4.2",
-                "composer/spdx-licenses": "1.5.0",
-                "composer/xdebug-handler": "1.3.1",
+                "amzn/amazon-pay-sdk-php": "3.4.1",
+                "bestit/amazonpay4oxid": "3.3.1",
+                "composer/ca-bundle": "1.2.4",
+                "composer/composer": "1.9.0",
+                "composer/semver": "1.5.0",
+                "composer/spdx-licenses": "1.5.2",
+                "composer/xdebug-handler": "1.3.3",
                 "ddoe/wysiwyg-editor-module": "v2.2.0",
                 "doctrine/annotations": "v1.4.0",
                 "doctrine/cache": "v1.6.2",
@@ -1682,25 +1828,25 @@
                 "doctrine/common": "v2.7.3",
                 "doctrine/dbal": "v2.5.13",
                 "doctrine/inflector": "v1.2.0",
-                "doctrine/lexer": "v1.0.1",
+                "doctrine/lexer": "1.0.2",
                 "doctrine/migrations": "v1.5.0",
                 "justinrainbow/json-schema": "5.2.8",
-                "monolog/monolog": "1.24.0",
+                "monolog/monolog": "1.25.1",
                 "ocramius/package-versions": "1.2.0",
                 "ocramius/proxy-manager": "2.0.4",
-                "oxid-esales/flow-theme": "v3.1.0",
-                "oxid-esales/gdpr-optin-module": "v2.1.2",
-                "oxid-esales/oxideshop-ce": "v6.3.2",
-                "oxid-esales/oxideshop-composer-plugin": "v2.0.3",
+                "oxid-esales/flow-theme": "v3.3.0",
+                "oxid-esales/gdpr-optin-module": "v2.2.0",
+                "oxid-esales/oxideshop-ce": "v6.3.6",
+                "oxid-esales/oxideshop-composer-plugin": "v2.0.4",
                 "oxid-esales/oxideshop-db-views-generator": "v1.2.0",
-                "oxid-esales/oxideshop-demodata-ce": "v6.0.1",
+                "oxid-esales/oxideshop-demodata-ce": "v6.0.3",
                 "oxid-esales/oxideshop-demodata-installer": "v1.1.2",
                 "oxid-esales/oxideshop-doctrine-migration-wrapper": "v2.1.3",
                 "oxid-esales/oxideshop-facts": "v2.3.1",
                 "oxid-esales/oxideshop-unified-namespace-generator": "v2.0.1",
                 "oxid-esales/paymorrow-module": "v2.0.1",
-                "oxid-esales/paypal-module": "v5.2.3",
-                "oxid-esales/wave-theme": "v1.0.1",
+                "oxid-esales/paypal-module": "v5.2.5",
+                "oxid-esales/wave-theme": "v1.2.0",
                 "payone-gmbh/oxid-6": "1.0.10",
                 "phpmailer/phpmailer": "v5.2.27",
                 "psr/container": "1.0.0",
@@ -1710,17 +1856,17 @@
                 "seld/phar-utils": "1.0.1",
                 "smarty/smarty": "v2.6.31",
                 "symfony/config": "v3.2.14",
-                "symfony/console": "v2.8.49",
+                "symfony/console": "v2.8.50",
                 "symfony/debug": "v3.0.9",
                 "symfony/dependency-injection": "v3.1.10",
-                "symfony/filesystem": "v3.4.21",
-                "symfony/finder": "v2.8.49",
-                "symfony/polyfill-ctype": "v1.10.0",
-                "symfony/polyfill-mbstring": "v1.10.0",
-                "symfony/process": "v2.8.49",
-                "symfony/yaml": "v2.8.49",
-                "topconcepts/oxid-klarna-6": "v4.2.1",
-                "webmozart/assert": "1.4.0",
+                "symfony/filesystem": "v3.4.32",
+                "symfony/finder": "v2.8.50",
+                "symfony/polyfill-ctype": "v1.12.0",
+                "symfony/polyfill-mbstring": "v1.12.0",
+                "symfony/process": "v2.8.50",
+                "symfony/yaml": "v2.8.50",
+                "topconcepts/oxid-klarna-6": "v4.3.0",
+                "webmozart/assert": "1.5.0",
                 "webmozart/glob": "4.1.0",
                 "webmozart/path-util": "2.3.0",
                 "zendframework/zend-code": "3.1.0",
@@ -1729,8 +1875,7 @@
             "type": "project",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-3.0-only",
-                "proprietary"
+                "GPL-3.0-only"
             ],
             "description": "This is OXID eShop compilation metapackage.",
             "homepage": "https://www.oxid-esales.com/en/home.html",
@@ -1738,7 +1883,7 @@
                 "metapackage",
                 "oxidEshop"
             ],
-            "time": "2019-01-22T18:08:14+00:00"
+            "time": "2019-10-29T10:49:14+00:00"
         },
         {
             "name": "oxid-esales/oxideshop-unified-namespace-generator",
@@ -1828,16 +1973,16 @@
         },
         {
             "name": "oxid-esales/paypal-module",
-            "version": "v5.2.3",
+            "version": "v5.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OXID-eSales/paypal.git",
-                "reference": "79009eab4041d90000e1037dfe7ce7e1a7ab58a7"
+                "reference": "a918ad60e6812493f0cf42737504bec2031b610a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OXID-eSales/paypal/zipball/79009eab4041d90000e1037dfe7ce7e1a7ab58a7",
-                "reference": "79009eab4041d90000e1037dfe7ce7e1a7ab58a7",
+                "url": "https://api.github.com/repos/OXID-eSales/paypal/zipball/a918ad60e6812493f0cf42737504bec2031b610a",
+                "reference": "a918ad60e6812493f0cf42737504bec2031b610a",
                 "shasum": ""
             },
             "require": {
@@ -1867,8 +2012,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-3.0-only",
-                "proprietary"
+                "GPL-3.0-only"
             ],
             "description": "This is the PayPal module for the OXID eShop.",
             "homepage": "https://www.oxid-esales.com/en/home.html",
@@ -1877,20 +2021,20 @@
                 "eshop",
                 "modules"
             ],
-            "time": "2018-10-09T10:21:26+00:00"
+            "time": "2019-04-13T18:22:06+00:00"
         },
         {
             "name": "oxid-esales/wave-theme",
-            "version": "v1.0.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OXID-eSales/wave-theme.git",
-                "reference": "46b5d40948d5b0e562b3644129a51ff966d6a9f7"
+                "reference": "bf8ab0a59aefd025f64ec546685c356d02903a9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OXID-eSales/wave-theme/zipball/46b5d40948d5b0e562b3644129a51ff966d6a9f7",
-                "reference": "46b5d40948d5b0e562b3644129a51ff966d6a9f7",
+                "url": "https://api.github.com/repos/OXID-eSales/wave-theme/zipball/bf8ab0a59aefd025f64ec546685c356d02903a9f",
+                "reference": "bf8ab0a59aefd025f64ec546685c356d02903a9f",
                 "shasum": ""
             },
             "type": "oxideshop-theme",
@@ -1913,8 +2057,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-3.0-only",
-                "proprietary"
+                "GPL-3.0-only"
             ],
             "description": "This is Wave Theme for OXID eShop.",
             "homepage": "https://www.oxid-esales.com/en/home.html",
@@ -1923,7 +2066,53 @@
                 "eshop",
                 "themes"
             ],
-            "time": "2019-01-22T15:44:44+00:00"
+            "time": "2019-07-16T08:50:25+00:00"
+        },
+        {
+            "name": "oxidprojects/dependency-injection",
+            "version": "0.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/OXIDprojects/dependency-injection.git",
+                "reference": "1293c733ae8ae96243b7c67c0a77c232f252f875"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/OXIDprojects/dependency-injection/zipball/1293c733ae8ae96243b7c67c0a77c232f252f875",
+                "reference": "1293c733ae8ae96243b7c67c0a77c232f252f875",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/dependency-injection": "^3.1",
+                "symfony/expression-language": "^3.4"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "phpunit/phpunit": "^6",
+                "symfony/config": "*",
+                "symfony/yaml": "*"
+            },
+            "type": "add-on",
+            "autoload": {
+                "psr-4": {
+                    "oxidprojects\\DI\\": "src/"
+                },
+                "files": [
+                    "function_project_container.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Tobias Matthaiou",
+                    "email": "developer@tobimat.eu"
+                }
+            ],
+            "description": "The missing dependency injection for OXID eShop",
+            "time": "2019-02-16T11:18:07+00:00"
         },
         {
             "name": "payone-gmbh/oxid-6",
@@ -2038,6 +2227,126 @@
             "time": "2018-11-15T22:32:31+00:00"
         },
         {
+            "name": "protipps/technical_details",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "extensions/technical_details",
+                "reference": "d69edd3f918b3ac4317fc9924b5cd3ebe30ccb75",
+                "shasum": null
+            },
+            "require": {
+                "oxid-esales/oxideshop-ce": "^v6.1",
+                "php": ">=7.1"
+            },
+            "type": "oxideshop-module",
+            "extra": {
+                "oxideshop": {
+                    "target-directory": "protipps/technical_details"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ProTipps\\TechnicalDetails\\": "../../../source/modules/protipps/technical_details"
+                }
+            },
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "description": "Expand articles with technical details",
+            "homepage": "https://www.programmier-tipps.de/",
+            "keywords": [
+                "eShop",
+                "modules",
+                "oxid"
+            ]
+        },
+        {
+            "name": "proudcommerce/psexceptionhandler",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/proudcommerce/psExceptionHandler.git",
+                "reference": "cfeab19612609e2e50c01bee7054c41028b53184"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/proudcommerce/psExceptionHandler/zipball/cfeab19612609e2e50c01bee7054c41028b53184",
+                "reference": "cfeab19612609e2e50c01bee7054c41028b53184",
+                "shasum": ""
+            },
+            "type": "oxideshop-module",
+            "extra": {
+                "oxideshop": {
+                    "target-directory": "ps/psexceptionhandler"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ProudSourcing\\ExceptionHandler\\": "../../../source/modules/ps/psexceptionhandler"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU"
+            ],
+            "description": "psExceptionHandler - Extended exception/throwable handling for OXID 6.",
+            "homepage": "https://github.com/proudcommerce/psExceptionHandler",
+            "keywords": [
+                "OXID",
+                "debug",
+                "exception",
+                "modules"
+            ],
+            "time": "2018-04-15T21:08:10+00:00"
+        },
+        {
+            "name": "psr/cache",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/cache.git",
+                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/cache/zipball/d11b50ad223250cf17b86e38383413f5a6764bf8",
+                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for caching libraries",
+            "keywords": [
+                "cache",
+                "psr",
+                "psr-6"
+            ],
+            "time": "2016-08-06T20:24:11+00:00"
+        },
+        {
             "name": "psr/container",
             "version": "1.0.0",
             "source": {
@@ -2132,6 +2441,54 @@
                 "psr-3"
             ],
             "time": "2018-11-20T15:27:04+00:00"
+        },
+        {
+            "name": "psr/simple-cache",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/simple-cache.git",
+                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\SimpleCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for simple caching",
+            "keywords": [
+                "cache",
+                "caching",
+                "psr",
+                "psr-16",
+                "simple-cache"
+            ],
+            "time": "2017-10-23T01:57:42+00:00"
         },
         {
             "name": "rmccue/requests",
@@ -2276,6 +2633,45 @@
             "time": "2015-10-13T18:44:15+00:00"
         },
         {
+            "name": "sioweb/formgenerator",
+            "version": "1.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Sioweb/Formulargenerator.git",
+                "reference": "b752e0d6f8e3951a9fe68e2f5fad74085681d61c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Sioweb/Formulargenerator/zipball/b752e0d6f8e3951a9fe68e2f5fad74085681d61c",
+                "reference": "b752e0d6f8e3951a9fe68e2f5fad74085681d61c",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sioweb\\Lib\\Formgenerator\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Sascha Weidner",
+                    "email": "support@sioweb.de"
+                }
+            ],
+            "description": "Use config json/array to build form",
+            "homepage": "https://github.com/sioweb/Formulargenerator",
+            "keywords": [
+                "form",
+                "generator",
+                "library"
+            ],
+            "time": "2019-04-03T11:56:07+00:00"
+        },
+        {
             "name": "smarty/smarty",
             "version": "v2.6.31",
             "source": {
@@ -2325,6 +2721,75 @@
                 "templating"
             ],
             "time": "2017-11-03T06:39:13+00:00"
+        },
+        {
+            "name": "symfony/cache",
+            "version": "v4.1.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/cache.git",
+                "reference": "399ddbf0ff98f42593827141b5fcd95d51c36b28"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/399ddbf0ff98f42593827141b5fcd95d51c36b28",
+                "reference": "399ddbf0ff98f42593827141b5fcd95d51c36b28",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "psr/cache": "~1.0",
+                "psr/log": "~1.0",
+                "psr/simple-cache": "^1.0"
+            },
+            "conflict": {
+                "symfony/var-dumper": "<3.4"
+            },
+            "provide": {
+                "psr/cache-implementation": "1.0",
+                "psr/simple-cache-implementation": "1.0"
+            },
+            "require-dev": {
+                "cache/integration-tests": "dev-master",
+                "doctrine/cache": "~1.6",
+                "doctrine/dbal": "~2.4",
+                "predis/predis": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Cache\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Cache component with PSR-6, PSR-16, and tags",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "caching",
+                "psr6"
+            ],
+            "time": "2019-04-16T09:37:00+00:00"
         },
         {
             "name": "symfony/config",
@@ -2384,7 +2849,7 @@
         },
         {
             "name": "symfony/console",
-            "version": "v2.8.49",
+            "version": "v2.8.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -2561,17 +3026,67 @@
             "time": "2017-01-28T00:04:57+00:00"
         },
         {
-            "name": "symfony/filesystem",
-            "version": "v3.4.21",
+            "name": "symfony/expression-language",
+            "version": "v3.4.36",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/filesystem.git",
-                "reference": "c24ce3d18ccc9bb9d7e1d6ce9330fcc6061cafde"
+                "url": "https://github.com/symfony/expression-language.git",
+                "reference": "434b23d0deaf6a9735f36036aac484bf423a2bae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/c24ce3d18ccc9bb9d7e1d6ce9330fcc6061cafde",
-                "reference": "c24ce3d18ccc9bb9d7e1d6ce9330fcc6061cafde",
+                "url": "https://api.github.com/repos/symfony/expression-language/zipball/434b23d0deaf6a9735f36036aac484bf423a2bae",
+                "reference": "434b23d0deaf6a9735f36036aac484bf423a2bae",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/cache": "~3.1|~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\ExpressionLanguage\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony ExpressionLanguage Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-10-24T15:33:53+00:00"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "v3.4.32",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/filesystem.git",
+                "reference": "00e3a6ddd723b8bcfe4f2a1b6f82b98eeeb51516"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/00e3a6ddd723b8bcfe4f2a1b6f82b98eeeb51516",
+                "reference": "00e3a6ddd723b8bcfe4f2a1b6f82b98eeeb51516",
                 "shasum": ""
             },
             "require": {
@@ -2608,11 +3123,11 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-01T13:45:19+00:00"
+            "time": "2019-08-20T13:31:17+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v2.8.49",
+            "version": "v2.8.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -2661,16 +3176,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.10.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19"
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e3d826245268269cd66f8326bd8bc066687b4a19",
-                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/550ebaac289296ce228a706d0867afc34687e3f4",
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4",
                 "shasum": ""
             },
             "require": {
@@ -2682,7 +3197,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -2699,12 +3214,12 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                },
-                {
                     "name": "Gert de Pagter",
                     "email": "BackEndTea@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -2715,20 +3230,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2018-08-06T14:22:27+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.10.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494"
+                "reference": "b42a2f66e8f1b15ccf25652c3424265923eb4f17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/c79c051f5b3a46be09205c73b80b346e4153e494",
-                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/b42a2f66e8f1b15ccf25652c3424265923eb4f17",
+                "reference": "b42a2f66e8f1b15ccf25652c3424265923eb4f17",
                 "shasum": ""
             },
             "require": {
@@ -2740,7 +3255,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -2774,11 +3289,11 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-09-21T13:07:52+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.49",
+            "version": "v2.8.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -2827,7 +3342,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.49",
+            "version": "v2.8.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -2876,17 +3391,87 @@
             "time": "2018-11-11T11:18:13+00:00"
         },
         {
-            "name": "topconcepts/oxid-klarna-6",
-            "version": "v4.2.1",
+            "name": "topconcepts/oxid-cleverreach-6",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/topconcepts/OXID-Klarna-6.git",
-                "reference": "522d31d8006ac5712a3c1c859325c1424efdad90"
+                "url": "https://github.com/topconcepts/OXID-CleverReach-6.git",
+                "reference": "cf085cdb0689424440ef7c145243e2b29e5a89f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/topconcepts/OXID-Klarna-6/zipball/522d31d8006ac5712a3c1c859325c1424efdad90",
-                "reference": "522d31d8006ac5712a3c1c859325c1424efdad90",
+                "url": "https://api.github.com/repos/topconcepts/OXID-CleverReach-6/zipball/cf085cdb0689424440ef7c145243e2b29e5a89f9",
+                "reference": "cf085cdb0689424440ef7c145243e2b29e5a89f9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6",
+                "topconcepts/oxid-jobinstance": "^v2.0.0"
+            },
+            "type": "oxideshop-module",
+            "extra": {
+                "oxideshop": {
+                    "blacklist-filter": [
+                        "documentation/**/*.*"
+                    ],
+                    "target-directory": "tc/tccleverreach"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TopConcepts\\CleverReach\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "CleverReach® module for OXID eShop version 6.0.X",
+            "time": "2018-11-28T14:38:06+00:00"
+        },
+        {
+            "name": "topconcepts/oxid-jobinstance",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/topconcepts/OXID-JobInstance.git",
+                "reference": "db0dbfa37811b308116dce789ee7a7901b2cc5f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/topconcepts/OXID-JobInstance/zipball/db0dbfa37811b308116dce789ee7a7901b2cc5f5",
+                "reference": "db0dbfa37811b308116dce789ee7a7901b2cc5f5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "type": "oxideshop-module",
+            "extra": {
+                "oxideshop": {
+                    "blacklist-filter": [
+                        "documentation/**/*.*"
+                    ],
+                    "target-directory": "tc/tcjobinstance"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TopConcepts\\JobInstance\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2018-05-16T13:26:25+00:00"
+        },
+        {
+            "name": "topconcepts/oxid-klarna-6",
+            "version": "v4.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/topconcepts/OXID-Klarna-6.git",
+                "reference": "20f81c56c5b086dffe467e1d51e11ada34f36402"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/topconcepts/OXID-Klarna-6/zipball/20f81c56c5b086dffe467e1d51e11ada34f36402",
+                "reference": "20f81c56c5b086dffe467e1d51e11ada34f36402",
                 "shasum": ""
             },
             "require": {
@@ -2913,20 +3498,20 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Klarna module for OXID eShop version 6.X",
-            "time": "2019-01-15T13:46:14+00:00"
+            "time": "2019-06-17T15:26:54+00:00"
         },
         {
             "name": "webmozart/assert",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9"
+                "reference": "88e6d84706d09a236046d686bbea96f07b3a34f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/83e253c8e0be5b0257b881e1827274667c5c17a9",
-                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/88e6d84706d09a236046d686bbea96f07b3a34f4",
+                "reference": "88e6d84706d09a236046d686bbea96f07b3a34f4",
                 "shasum": ""
             },
             "require": {
@@ -2934,8 +3519,7 @@
                 "symfony/polyfill-ctype": "^1.8"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.6",
-                "sebastian/version": "^1.0.1"
+                "phpunit/phpunit": "^4.8.36 || ^7.5.13"
             },
             "type": "library",
             "extra": {
@@ -2964,7 +3548,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2018-12-25T11:19:39+00:00"
+            "time": "2019-08-24T08:43:50+00:00"
         },
         {
             "name": "webmozart/glob",
@@ -3110,6 +3694,7 @@
                 "code",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-code",
             "time": "2016-10-24T13:23:32+00:00"
         },
         {
@@ -3164,7 +3749,54 @@
                 "events",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-eventmanager",
             "time": "2018-04-25T15:33:34+00:00"
+        },
+        {
+            "name": "zunderweb/oxid-autoregister-namespaces",
+            "version": "v0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leofonic/oxid-autoregister-namespaces.git",
+                "reference": "9bb04e238ebab3318e48c215f4cd424609f49472"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leofonic/oxid-autoregister-namespaces/zipball/9bb04e238ebab3318e48c215f4cd424609f49472",
+                "reference": "9bb04e238ebab3318e48c215f4cd424609f49472",
+                "shasum": ""
+            },
+            "require": {
+                "oxid-esales/oxideshop-ce": "^v6.0",
+                "php": ">=5.6"
+            },
+            "type": "oxideshop-module",
+            "extra": {
+                "oxideshop": {
+                    "target-directory": "zunderweb/autoregister-namespaces"
+                }
+            },
+            "autoload": {
+                "psr-4": []
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "zunderweb",
+                    "email": "info@zunderweb.de"
+                }
+            ],
+            "description": "OXID eShop: Autoregister Module Namespaces",
+            "homepage": "https://www.zunderweb.de",
+            "keywords": [
+                "OXID",
+                "eshop",
+                "modules"
+            ],
+            "time": "2018-10-22T12:20:42+00:00"
         }
     ],
     "packages-dev": [
@@ -3331,27 +3963,29 @@
         },
         {
             "name": "doctrine/instantiator",
-            "version": "1.1.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda"
+                "reference": "ae466f726242e637cebdd526a7d991b9433bacf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda",
-                "reference": "185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/ae466f726242e637cebdd526a7d991b9433bacf1",
+                "reference": "ae466f726242e637cebdd526a7d991b9433bacf1",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1"
             },
             "require-dev": {
-                "athletic/athletic": "~0.1.8",
+                "doctrine/coding-standard": "^6.0",
                 "ext-pdo": "*",
                 "ext-phar": "*",
-                "phpunit/phpunit": "^6.2.3",
-                "squizlabs/php_codesniffer": "^3.0.2"
+                "phpbench/phpbench": "^0.13",
+                "phpstan/phpstan-phpunit": "^0.11",
+                "phpstan/phpstan-shim": "^0.11",
+                "phpunit/phpunit": "^7.0"
             },
             "type": "library",
             "extra": {
@@ -3376,12 +4010,12 @@
                 }
             ],
             "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
-            "homepage": "https://github.com/doctrine/instantiator",
+            "homepage": "https://www.doctrine-project.org/projects/instantiator.html",
             "keywords": [
                 "constructor",
                 "instantiate"
             ],
-            "time": "2017-07-22T11:58:36+00:00"
+            "time": "2019-10-21T16:45:58+00:00"
         },
         {
             "name": "fabpot/goutte",
@@ -3693,16 +4327,16 @@
             "time": "2018-02-13T18:05:56+00:00"
         },
         {
-            "name": "mikey179/vfsStream",
+            "name": "mikey179/vfsstream",
             "version": "v1.4.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/mikey179/vfsStream.git",
+                "url": "https://github.com/bovigo/vfsStream.git",
                 "reference": "61b12172292cf539685507aa65b076c1530e83c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mikey179/vfsStream/zipball/61b12172292cf539685507aa65b076c1530e83c1",
+                "url": "https://api.github.com/repos/bovigo/vfsStream/zipball/61b12172292cf539685507aa65b076c1530e83c1",
                 "reference": "61b12172292cf539685507aa65b076c1530e83c1",
                 "shasum": ""
             },
@@ -3937,16 +4571,16 @@
         },
         {
             "name": "oxid-esales/testing-library",
-            "version": "v5.0.4",
+            "version": "v5.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OXID-eSales/testing_library.git",
-                "reference": "f4caead756c88fcb9e3427ebadd179e07838bb5d"
+                "reference": "fea38edadf0502658e4ebfbbc7d62d9640fefabc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OXID-eSales/testing_library/zipball/f4caead756c88fcb9e3427ebadd179e07838bb5d",
-                "reference": "f4caead756c88fcb9e3427ebadd179e07838bb5d",
+                "url": "https://api.github.com/repos/OXID-eSales/testing_library/zipball/fea38edadf0502658e4ebfbbc7d62d9640fefabc",
+                "reference": "fea38edadf0502658e4ebfbbc7d62d9640fefabc",
                 "shasum": ""
             },
             "require": {
@@ -4004,7 +4638,7 @@
                 "modules",
                 "testing"
             ],
-            "time": "2018-10-05T09:33:54+00:00"
+            "time": "2019-07-30T14:57:57+00:00"
         },
         {
             "name": "pdepend/pdepend",
@@ -4048,35 +4682,33 @@
         },
         {
             "name": "phpdocumentor/reflection-common",
-            "version": "1.0.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionCommon.git",
-                "reference": "21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6"
+                "reference": "63a995caa1ca9e5590304cd845c15ad6d482a62a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
-                "reference": "21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/63a995caa1ca9e5590304cd845c15ad6d482a62a",
+                "reference": "63a995caa1ca9e5590304cd845c15ad6d482a62a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5"
+                "php": ">=7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.6"
+                "phpunit/phpunit": "~6"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "phpDocumentor\\Reflection\\": [
-                        "src"
-                    ]
+                    "phpDocumentor\\Reflection\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4098,30 +4730,30 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2017-09-11T18:02:19+00:00"
+            "time": "2018-08-07T13:53:10+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "4.3.0",
+            "version": "4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "94fd0001232e47129dd3504189fa1c7225010d08"
+                "reference": "b83ff7cfcfee7827e1e78b637a5904fe6a96698e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/94fd0001232e47129dd3504189fa1c7225010d08",
-                "reference": "94fd0001232e47129dd3504189fa1c7225010d08",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/b83ff7cfcfee7827e1e78b637a5904fe6a96698e",
+                "reference": "b83ff7cfcfee7827e1e78b637a5904fe6a96698e",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
-                "phpdocumentor/reflection-common": "^1.0.0",
-                "phpdocumentor/type-resolver": "^0.4.0",
+                "phpdocumentor/reflection-common": "^1.0.0 || ^2.0.0",
+                "phpdocumentor/type-resolver": "~0.4 || ^1.0.0",
                 "webmozart/assert": "^1.0"
             },
             "require-dev": {
-                "doctrine/instantiator": "~1.0.5",
+                "doctrine/instantiator": "^1.0.5",
                 "mockery/mockery": "^1.0",
                 "phpunit/phpunit": "^6.4"
             },
@@ -4149,41 +4781,40 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-11-30T07:14:17+00:00"
+            "time": "2019-09-12T14:27:41+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "0.4.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7"
+                "reference": "2e32a6d48972b2c1976ed5d8967145b6cec4a4a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/9c977708995954784726e25d0cd1dddf4e65b0f7",
-                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/2e32a6d48972b2c1976ed5d8967145b6cec4a4a9",
+                "reference": "2e32a6d48972b2c1976ed5d8967145b6cec4a4a9",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5 || ^7.0",
-                "phpdocumentor/reflection-common": "^1.0"
+                "php": "^7.1",
+                "phpdocumentor/reflection-common": "^2.0"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^5.2||^4.8.24"
+                "ext-tokenizer": "^7.1",
+                "mockery/mockery": "~1",
+                "phpunit/phpunit": "^7.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "phpDocumentor\\Reflection\\": [
-                        "src/"
-                    ]
+                    "phpDocumentor\\Reflection\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4196,26 +4827,27 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2017-07-14T14:27:02+00:00"
+            "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
+            "time": "2019-08-22T18:11:29+00:00"
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "4ba436b55987b4bf311cb7c6ba82aa528aac0a06"
+                "reference": "f6811d96d97bdf400077a0cc100ae56aa32b9203"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/4ba436b55987b4bf311cb7c6ba82aa528aac0a06",
-                "reference": "4ba436b55987b4bf311cb7c6ba82aa528aac0a06",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/f6811d96d97bdf400077a0cc100ae56aa32b9203",
+                "reference": "f6811d96d97bdf400077a0cc100ae56aa32b9203",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
                 "php": "^5.3|^7.0",
-                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0",
+                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0|^5.0",
                 "sebastian/comparator": "^1.1|^2.0|^3.0",
                 "sebastian/recursion-context": "^1.0|^2.0|^3.0"
             },
@@ -4230,8 +4862,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Prophecy\\": "src/"
+                "psr-4": {
+                    "Prophecy\\": "src/Prophecy"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4259,7 +4891,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-08-05T17:53:17+00:00"
+            "time": "2019-10-03T11:07:50+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -4687,6 +5319,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2015-10-02T06:51:40+00:00"
         },
         {
@@ -5180,7 +5813,7 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v2.8.49",
+            "version": "v2.8.52",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -5237,7 +5870,7 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v2.8.49",
+            "version": "v2.8.52",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -5272,12 +5905,12 @@
             ],
             "authors": [
                 {
-                    "name": "Jean-François Simon",
-                    "email": "jeanfrancois.simon@sensiolabs.com"
-                },
-                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Jean-François Simon",
+                    "email": "jeanfrancois.simon@sensiolabs.com"
                 },
                 {
                     "name": "Symfony Community",
@@ -5290,7 +5923,7 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v2.7.50",
+            "version": "v2.7.51",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
@@ -5447,7 +6080,11 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "proudcommerce/psexceptionhandler": 20,
+        "linslin/oxid6-example-module": 20,
+        "oxid-esales/extend-user-demo-module": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
