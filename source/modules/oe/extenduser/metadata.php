@@ -31,7 +31,7 @@ $aModule = array(
     'url'          => 'http://www.oxid-esales.com',
     'email'        => 'mantas.vaitkunas@oxid-esales.com',
     'extend'       => array(
-        \OxidEsales\Eshop\Application\Model\User\UserUpdatableFields::class => \OxidEsales\ExtendUser\UserUpdatableFields::class
+        \OxidEsales\Eshop\Application\Model\User\UserUpdatableFields::class => \OxidEsales\ExtendUser\UserUpdatableFields::class,
     ),
     'events'       => array(
         'onActivate'   => \OxidEsales\ExtendUser\ModuleEvents::class.'::onActivate',

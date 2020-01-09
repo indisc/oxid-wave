@@ -17,7 +17,7 @@ class UserUpdatableFields extends UserUpdatableFields_parent
 {
     protected $fieldsToAdd = [
         UserModel::FIELD_ADDITIONAL_INFORMATION,
-        UserMOdel::FIELD_CHECKBOX_REGISTRY
+        UserModel::FIELD_CHECKBOX_REGISTRY
     ];
 
     /**
