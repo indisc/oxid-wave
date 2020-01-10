@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OX>
+    <OXMENU id="NAVIGATION_ESHOPADMIN">
+        <MAINMENU id="mxmainmenu">
+            <SUBMENU id="mxcountries" cl="country" list="country_list">
+                <TAB id="oevattbe_country_vat_groups" cl="oevattbecountryvatgroups"/>
+            </SUBMENU>
+        </MAINMENU>
+        <MAINMENU id="mxmanageprod">
+            <SUBMENU id="mxarticles" cl="article" list="article_list">
+                <TAB id="oevattbe_article_administration" cl="oevattbearticleadministration" />
+            </SUBMENU>
+            <SUBMENU id="mxcategories" cl="category" list="category_list">
+                <TAB id="oevattbe_category_administration" cl="oevattbecategoryadministration" />
+            </SUBMENU>
+        </MAINMENU>
+    </OXMENU>
+</OX>

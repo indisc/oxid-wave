@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2d7e0c9f6c1aea1685f18dd64ebacfd3",
+    "content-hash": "0ab4dceb396adc4a26a2056153c6124f",
     "packages": [
         {
             "name": "amzn/amazon-pay-sdk-php",
@@ -1417,6 +1417,45 @@
                 "oxid-module-internals"
             ],
             "time": "2019-06-25T11:27:45+00:00"
+        },
+        {
+            "name": "oxid-esales/evat-module",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/OXID-eSales/vat_tbe_services.git",
+                "reference": "1948d3606b76f0768ec2937f0c954ef5914209c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/OXID-eSales/vat_tbe_services/zipball/1948d3606b76f0768ec2937f0c954ef5914209c7",
+                "reference": "1948d3606b76f0768ec2937f0c954ef5914209c7",
+                "shasum": ""
+            },
+            "type": "oxideshop-module",
+            "extra": {
+                "oxideshop": {
+                    "target-directory": "oe/oevattbe",
+                    "blacklist-filter": [
+                        "documentation/**",
+                        "README.md",
+                        "CONTRIBUTING.md",
+                        "composer.json"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "description": "This is eVat module for OXID eShop.",
+            "homepage": "https://www.oxid-esales.com/en/home.html",
+            "keywords": [
+                "OXID",
+                "eshop",
+                "modules"
+            ],
+            "time": "2017-08-04T08:43:02+00:00"
         },
         {
             "name": "oxid-esales/extend-user-demo-module",

@@ -2117,6 +2117,47 @@
         ]
     },
     {
+        "name": "oxid-esales/evat-module",
+        "version": "v2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/OXID-eSales/vat_tbe_services.git",
+            "reference": "1948d3606b76f0768ec2937f0c954ef5914209c7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/OXID-eSales/vat_tbe_services/zipball/1948d3606b76f0768ec2937f0c954ef5914209c7",
+            "reference": "1948d3606b76f0768ec2937f0c954ef5914209c7",
+            "shasum": ""
+        },
+        "time": "2017-08-04T08:43:02+00:00",
+        "type": "oxideshop-module",
+        "extra": {
+            "oxideshop": {
+                "target-directory": "oe/oevattbe",
+                "blacklist-filter": [
+                    "documentation/**",
+                    "README.md",
+                    "CONTRIBUTING.md",
+                    "composer.json"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0"
+        ],
+        "description": "This is eVat module for OXID eShop.",
+        "homepage": "https://www.oxid-esales.com/en/home.html",
+        "keywords": [
+            "OXID",
+            "eshop",
+            "modules"
+        ]
+    },
+    {
         "name": "oxid-esales/extend-user-demo-module",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
